@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cancel Booking &mdash; Hotels b2b API 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Hotels b2b API 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Error Codes" href="errors.html" />
+    <link rel="prev" title="Get Refund Details" href="get_refund_details.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="errors.html" title="Error Codes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="get_refund_details.html" title="Get Refund Details"
+             accesskey="P">previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="cancel-booking">
+<h1>Cancel Booking<a class="headerlink" href="#cancel-booking" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first"><strong>Description</strong>:</p>
+<blockquote>
+<div><p>To cancel booking, required post-param is <cite>gobookingid</cite> which is obtained from Confirm Booking API</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Sample request URL</strong>:</p>
+<blockquote>
+<div><p><cite>Request Method</cite> :  <cite>POST</cite></p>
+<p><a class="reference external" href="https://www.goibibobusiness.com/api/hotels/b2b/confirm_cancel">https://www.goibibobusiness.com/api/hotels/b2b/confirm_cancel</a></p>
+<p><strong>POST form-data</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>gobookingid</li>
+</ol>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>These validations hold for cancel booking API:</p>
+<blockquote>
+<div><em>Valid gobookingid</em></div></blockquote>
+<p><strong>Example</strong>:</p>
+<blockquote class="last">
+<div><p><strong>URL</strong></p>
+<p><a class="reference external" href="http://goibibobusiness.com/api/hotels/b2b/confirm_cancel">http://goibibobusiness.com/api/hotels/b2b/confirm_cancel</a></p>
+</div></blockquote>
+</div>
+<ul>
+<li><p class="first"><strong>Sample Response</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;bank_ref_num&quot;</span><span class="p">:</span> <span class="s">&quot;CRED151&quot;</span><span class="p">,</span>
+        <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;mihpayid&quot;</span><span class="p">:</span> <span class="s">&quot;CRED150&quot;</span><span class="p">,</span>
+        <span class="s">&quot;amount_settled&quot;</span><span class="p">:</span> <span class="s">&quot;0.00000&quot;</span><span class="p">,</span>
+        <span class="s">&quot;settlement_id&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;UTR_no&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;msg&quot;</span><span class="p">:</span> <span class="s">&quot;Refunded&quot;</span><span class="p">,</span>
+        <span class="s">&quot;token&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;Credits&quot;</span><span class="p">,</span>
+        <span class="s">&quot;value_date&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s">&quot;request_id&quot;</span><span class="p">:</span> <span class="s">&quot;GOHTLDV229d8e1432635791&quot;</span><span class="p">,</span>
+        <span class="s">&quot;action&quot;</span><span class="p">:</span> <span class="s">&quot;refund&quot;</span><span class="p">,</span>
+        <span class="s">&quot;amt&quot;</span><span class="p">:</span> <span class="mf">5972.0</span>
+    <span class="p">},</span>
+    <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Result Description</strong>:</p>
+<blockquote>
+<div><p>Returns the json response, <cite>status</cite> Flag indicates the status of cancellation done, if <cite>1</cite> cancelled and refunded amount else failed to refund back, but cancelled.</p>
+<p><em>Other keys such as</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre>bank_ref_num    : This is the reference number regarding refund transaction done to account, incase if amount is not refunded, then this number can be used for reference.
+status          : This is similar to status Flag, to indicate the status of refund done.
+amount_settled  : Used for internal purpose
+mihpayid        : This is the reference number regarding the actual booking, i.e., generated during the time of booking.
+msg             : Returns message as &#39;Refunded&#39; or &#39;Not Refunded`, if Not Refunded, then need to contact Goibibo support team
+token           : Used for internal purpose
+mode            : Used for internal purpose
+value_date      : Used for internal purpose
+request_id      : gobookingid
+action          : Used for internal purpose
+amt             : Total amount refunded back to account
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="get_refund_details.html"
+                        title="previous chapter">Get Refund Details</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="errors.html"
+                        title="next chapter">Error Codes</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/confirm_cancel.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="errors.html" title="Error Codes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="get_refund_details.html" title="Get Refund Details"
+             >previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, ibibo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hotel Cancel Policy &mdash; Hotels b2b API 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Hotels b2b API 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Provisional Booking" href="pro_booking.html" />
+    <link rel="prev" title="Hotel Review" href="hotel_review.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="pro_booking.html" title="Provisional Booking"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hotel_review.html" title="Hotel Review"
+             accesskey="P">previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hotel-cancel-policy">
+<h1>Hotel Cancel Policy<a class="headerlink" href="#hotel-cancel-policy" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first"><strong>Description</strong>:</p>
+<blockquote>
+<div><p>To get the Hotel policy and Hotel Cancel policy, required params are <cite>query string</cite>, <cite>hotel code (hc)</cite>, <cite>Room type code (rtc)</cite>, <cite>Room plan code (rpc)</cite>, <cite>forward params (fwdp)</cite> and <cite>ibibo partner value (ibp)</cite></p>
+<ol class="arabic simple">
+<li>Hotel code (hc) can be used as used in <cite>Hotel Details API</cite></li>
+<li>Room type code (rtc) is obtained from <cite>Hotel Details API</cite> under <cite>rooms_data</cite></li>
+<li>Room plan code (rpc) is obtained from <cite>Hotel Details API</cite> under <cite>rooms_data</cite></li>
+<li>Forward params is obtained from <cite>Hotel Details API</cite> under <cite>rooms_data</cite></li>
+<li>Ibibo partner value is obtained from <cite>Hotel Details API</cite> under <cite>rooms_data</cite></li>
+<li>Offercode value, which is obtained from <cite>Hotel Details API</cite> under <cite>rooms_data</cite></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>These validations hold for Hotel Policy API:</p>
+<ul class="last simple">
+<li>Checkout Date is after Checkin Date</li>
+<li>No. of passengers cannot exceed 9</li>
+<li>Minimum of 1 adult required for booking</li>
+<li>No. of rooms cannot exceed 4</li>
+<li>No of infants cannot exceed no. of adults</li>
+<li>Valid hotel code</li>
+<li>Room plan code (rpc) &amp; Room type code (rtc)</li>
+<li>Ibibo partner value (ibp) &amp; Forward params (fwdp)</li>
+</ul>
+</div>
+<ul>
+<li><p class="first"><strong>Sample request URL</strong>:</p>
+<blockquote>
+<div><p><cite>Request Method</cite> :  <cite>GET</cite></p>
+<p><cite>rtc</cite>, <cite>rpc</cite> and <cite>ibp</cite> values will be obtained from Hotel details API</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<div><p>When fwdp value and offercode is null i.e.,:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fwdp</span><span class="o">=</span><span class="p">{}</span>
+<span class="n">offercode</span><span class="o">=</span><span class="s">&#39;&#39;</span>
+</pre></div>
+</div>
+<p><cite>https://www.goibibobusiness.com/api/hotels/b2b/get_hotel_cancel_policy?query=hotels-2497145202766736847-20150425-20150426-1-1_0&amp;rpc=1&amp;rtc=1&amp;hc=2497145202766736847&amp;fwdp={}&amp;ibp=v4</cite>.</p>
+</div></blockquote>
+<p><strong>Example 2</strong></p>
+<blockquote>
+<div><p>when fwdp is not null ie..:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fwdp</span><span class="o">=</span>   <span class="p">{</span>
+        <span class="s">&quot;index&quot;</span><span class="p">:</span><span class="s">&quot;9&quot;</span><span class="p">,</span>
+        <span class="s">&quot;HotelName&quot;</span><span class="p">:</span><span class="s">&quot;Grand Mercure Roxy&quot;</span><span class="p">,</span>
+        <span class="s">&quot;HotelCode&quot;</span><span class="p">:</span><span class="s">&quot;CEN_16532_AB94867E500004E7DFD4A3B3829AF4C5&quot;</span><span class="p">,</span>
+        <span class="s">&quot;sessionId&quot;</span><span class="p">:</span><span class="s">&quot;7d88128e-7db7-40ce-97d5-d23277bb4ea3&quot;</span><span class="p">,</span>
+        <span class="s">&quot;query&quot;</span><span class="p">:</span><span class="s">&quot;hotels-7535647685670244982-20150430-20150501-1-1_0-foo&quot;</span>
+        <span class="p">}</span>
+<span class="n">offercode</span> <span class="o">=</span> <span class="mi">98778656</span>
+</pre></div>
+</div>
+<p><cite>https://www.goibibobusiness.com/api/hotels/b2b/get_hotel_cancel_policy?query=hotels-2497145202766736847-20150425-20150426-1-1_0&amp;rpc=1&amp;rtc=1&amp;hc=2497145202766736847&amp;fwdp={&#8220;index&#8221;:&#8221;9&#8221;,&#8221;HotelName&#8221;:&#8221;Grand Mercure Roxy&#8221;,&#8221;HotelCode&#8221;:&#8221;CEN_16532_AB94867E500004E7DFD4A3B3829AF4C5&#8221;,&#8221;sessionId&#8221;:&#8221;7d88128e-7db7-40ce-97d5-d23277bb4ea3&#8221;,&#8221;query&#8221;:&#8221;hotels-7535647685670244982-20150430-20150501-1-1_0-foo&#8221;}&amp;ibp=v4&amp;offercode=98778656</cite>.</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Sample Response</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;cancelPolicy&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s">&quot;This Booking is Non Refundable.&quot;</span><span class="p">,</span>
+            <span class="s">&quot;On cancellation of bookings done using promotional codes, the charges are calculated on total price&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Most hotels do not allow unmarried / unrelated couples to check-in. This is at full discretion of the hotel management. No refund would be applicable in case the hotel denies check-in under such circumstances .&quot;</span>
+        <span class="p">],</span>
+        <span class="s">&quot;hotelPolicy&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Description of response</strong>:</dt>
+<dd><p class="first last">Returns hotel cancel policy and hotel policy</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hotel_review.html"
+                        title="previous chapter">Hotel Review</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pro_booking.html"
+                        title="next chapter">Provisional Booking</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/hotel_policy.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="pro_booking.html" title="Provisional Booking"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hotel_review.html" title="Hotel Review"
+             >previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, ibibo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

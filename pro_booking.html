@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Provisional Booking &mdash; Hotels b2b API 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Hotels b2b API 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Confirm Booking" href="confirm_booking.html" />
+    <link rel="prev" title="Hotel Cancel Policy" href="hotel_policy.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="confirm_booking.html" title="Confirm Booking"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hotel_policy.html" title="Hotel Cancel Policy"
+             accesskey="P">previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="provisional-booking">
+<h1>Provisional Booking<a class="headerlink" href="#provisional-booking" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first"><strong>Description</strong>:</p>
+<blockquote>
+<div><p>To make provisional booking and get <cite>gobookingid</cite> and other keys which is used to generate <cite>secretkey</cite></p>
+<p><cite>secretkey</cite> is used for confirm booking</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Sample request URL</strong>:</p>
+<blockquote>
+<div><p><cite>Request Method</cite> :  <cite>POST</cite></p>
+<p><a class="reference external" href="https://www.goibibobusiness.com/api/hotels/b2b/provisional_booking/?query=hotels-6771549831164675055-20150530-20150531-1-2_0&amp;hc=3388129019975843689&amp;ibp=v3&amp;rtc=45000012376&amp;rpc=990000015896">https://www.goibibobusiness.com/api/hotels/b2b/provisional_booking/?query=hotels-6771549831164675055-20150530-20150531-1-2_0&amp;hc=3388129019975843689&amp;ibp=v3&amp;rtc=45000012376&amp;rpc=990000015896</a></p>
+<p><strong>POST form-data</strong></p>
+<ol class="arabic simple">
+<li><cite>fwdp</cite></li>
+<li><cite>customer_details</cite></li>
+</ol>
+<p><cite>required items for customer_details</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre>firstname          : First name of Customer
+lastname           : Last name of Customer
+email              : Customer Email ID
+mobile             : Customer mobile number
+country_phone_code : Customer country phone code  (Ex: +91)
+title              : Customer title to be prefixed with name (Ex: Mr/Mrs/Ms)
+</pre></div>
+</div>
+<p><cite>Ibibopartner (ibp)</cite>, <cite>Room type code (rtc)</cite> and <cite>Room plan code (rpc)</cite> are obtained under rooms_data, from previous <cite>Hotel Details</cite> API</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>These validations hold for Provisional booking API:</p>
+<ul class="last simple">
+<li>Checkout Date is after Checkin Date</li>
+<li>No. of passengers cannot exceed 9</li>
+<li>No. of rooms cannot exceed 4</li>
+<li>Minimum of 1 adult required for booking</li>
+<li>No of infants cannot exceed no. of adults</li>
+<li>Valid hotel code</li>
+<li>Room plan code (rpc) &amp; Room type code (rtc)</li>
+<li>Ibibo partner value (ibp) &amp; Forward params (fwdp)</li>
+<li>Customer details (firstname, lastname, email, mobile, country_phone_code, title)</li>
+</ul>
+</div>
+<dl class="docutils">
+<dt><strong>-</strong></dt>
+<dd><p class="first"><strong>Example 1</strong>:</p>
+<blockquote>
+<div><p>When <cite>fwdp</cite> is null i.e.,:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">fwdp</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p><strong>POST URL with params</strong></p>
+<p><a class="reference external" href="https://www.goibibobusiness.com/api/hotels/b2b/provisional_booking?query=hotels-6771549831164675055-20150523-20150525-1-2_0&amp;hc=7103173328374473001&amp;ibp=v6&amp;rtc=IAS1RR&amp;rpc=RRzzIAS1RR">https://www.goibibobusiness.com/api/hotels/b2b/provisional_booking?query=hotels-6771549831164675055-20150523-20150525-1-2_0&amp;hc=7103173328374473001&amp;ibp=v6&amp;rtc=IAS1RR&amp;rpc=RRzzIAS1RR</a></p>
+<p><strong>POST form-data</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>fwdp            : { }
+customer_details: {
+                   &quot;firstname&quot;          : &quot;abc&quot;,
+                   &quot;lastname&quot;           : &quot;xyz&quot;,
+                   &quot;email&quot;              : &quot;xyz@abc.com&quot;,
+                   &quot;mobile&quot;             : &quot;1234567891&quot;,
+                   &quot;country_phone_code&quot; : &quot;+91&quot;,
+                   &quot;title&quot;              : &quot;Mr&quot;
+                  }
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Example 2</strong>:</p>
+<blockquote class="last">
+<div><p>When <cite>fwdp</cite> is not null i.e.,</p>
+<p><strong>POST URL with params</strong></p>
+<p><a class="reference external" href="https://www.goibibobusiness.com/api/hotels/b2b/provisional_booking?query=hotels-6771549831164675055-20150523-20150525-1-2_0&amp;hc=7103173328374473001&amp;ibp=v6&amp;rtc=IAS1RR&amp;rpc=RRzzIAS1RR">https://www.goibibobusiness.com/api/hotels/b2b/provisional_booking?query=hotels-6771549831164675055-20150523-20150525-1-2_0&amp;hc=7103173328374473001&amp;ibp=v6&amp;rtc=IAS1RR&amp;rpc=RRzzIAS1RR</a></p>
+<p><strong>POST form-data</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>fwdp            : {
+                   &quot;vhid&quot;               : &quot;8544442103388575645&quot;,
+                   &quot;guarantee_type&quot;     : &quot;C&quot;,
+                   &quot;chain_code&quot;         : &quot;TJ&quot;,
+                   &quot;country_code&quot;       : &quot;IN&quot;,
+                   &quot;property_code&quot;      : &quot;HLTBLRGH&quot;,
+                   &quot;city_code&quot;          : &quot;BLR001&quot;
+                  }
+
+customer_details: {
+                   &quot;firstname&quot;          : &quot;abc&quot;,
+                   &quot;lastname&quot;           : &quot;xyz&quot;,
+                   &quot;email&quot;              : &quot;xyz@abc.com&quot;,
+                   &quot;mobile&quot;             : &quot;1234567891&quot;,
+                   &quot;country_phone_code&quot; : &quot;+91&quot;,
+                   &quot;title&quot;              : &quot;Mr&quot;
+                  }
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+</dl>
+<ul>
+<li><p class="first"><strong>Sample Response</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;guest&quot;</span><span class="p">:</span> <span class="s">&quot;true&quot;</span><span class="p">,</span>
+                <span class="s">&quot;firstname&quot;</span><span class="p">:</span> <span class="s">&quot;abc&quot;</span><span class="p">,</span>
+                <span class="s">&quot;amount&quot;</span><span class="p">:</span> <span class="s">&quot;22910&quot;</span><span class="p">,</span>
+                <span class="s">&quot;gobookingid&quot;</span><span class="p">:</span> <span class="s">&quot;GOHTLDV2a0c601430192838&quot;</span><span class="p">,</span>
+                <span class="s">&quot;udf1&quot;</span><span class="p">:</span> <span class="s">&quot;temp&quot;</span><span class="p">,</span>
+                <span class="s">&quot;productinfo&quot;</span><span class="p">:</span> <span class="s">&quot;hotels-4354390963378411938-20150512-20150514-1-2_0&quot;</span><span class="p">,</span>
+                <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;xyz@abc.com&quot;</span>
+            <span class="p">},</span>
+    <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Result Description</strong>:</p>
+<blockquote>
+<div><p>Returns dictionary with <cite>provisional booking Id</cite> and other user info used for forming secretkey to confirm booking in next API</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Required Param for next API</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>guest</li>
+<li>firstname</li>
+<li>amount</li>
+<li>gobookingid : Primary Booking ID (Provisional booking Id)</li>
+<li>udf1</li>
+<li>productinfo</li>
+<li>email</li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hotel_policy.html"
+                        title="previous chapter">Hotel Cancel Policy</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="confirm_booking.html"
+                        title="next chapter">Confirm Booking</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/pro_booking.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="confirm_booking.html" title="Confirm Booking"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hotel_policy.html" title="Hotel Cancel Policy"
+             >previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, ibibo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

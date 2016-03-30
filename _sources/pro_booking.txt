@@ -1,0 +1,129 @@
+###################
+Provisional Booking
+###################
+
+* **Description**:
+
+    To make provisional booking and get `gobookingid` and other keys which is used to generate `secretkey`
+
+    `secretkey` is used for confirm booking
+
+* **Sample request URL**:
+
+   `Request Method` :  `POST`
+
+   https://www.goibibobusiness.com/api/hotels/b2b/provisional_booking/?query=hotels-6771549831164675055-20150530-20150531-1-2_0&hc=3388129019975843689&ibp=v3&rtc=45000012376&rpc=990000015896
+   
+   **POST form-data**
+	
+   #. `fwdp`
+   #. `customer_details`
+
+   `required items for customer_details`::
+	
+	firstname 	   : First name of Customer
+	lastname  	   : Last name of Customer
+	email     	   : Customer Email ID
+	mobile    	   : Customer mobile number
+	country_phone_code : Customer country phone code  (Ex: +91)
+	title		   : Customer title to be prefixed with name (Ex: Mr/Mrs/Ms)
+
+   `Ibibopartner (ibp)`, `Room type code (rtc)` and `Room plan code (rpc)` are obtained under rooms_data, from previous `Hotel Details` API
+
+.. note:: These validations hold for Provisional booking API:
+
+            * Checkout Date is after Checkin Date
+            * No. of passengers cannot exceed 9
+            * No. of rooms cannot exceed 4
+            * Minimum of 1 adult required for booking
+            * No of infants cannot exceed no. of adults
+            * Valid hotel code
+            * Room plan code (rpc) & Room type code (rtc)
+            * Ibibo partner value (ibp) & Forward params (fwdp)
+            * Customer details (firstname, lastname, email, mobile, country_phone_code, title)
+
+**-**
+   **Example 1**:
+
+	When `fwdp` is null i.e.,::
+		
+		fwdp = {}
+
+	**POST URL with params**
+
+	https://www.goibibobusiness.com/api/hotels/b2b/provisional_booking?query=hotels-6771549831164675055-20150523-20150525-1-2_0&hc=7103173328374473001&ibp=v6&rtc=IAS1RR&rpc=RRzzIAS1RR	
+
+	**POST form-data**::
+	
+		fwdp		: { }
+		customer_details: {
+			     	   "firstname"		: "abc",
+				   "lastname"		: "xyz",
+				   "email"		: "xyz@abc.com",
+				   "mobile"		: "1234567891",
+				   "country_phone_code"	: "+91",
+				   "title"		: "Mr"
+				  }
+
+   **Example 2**:
+
+	When `fwdp` is not null i.e.,
+		
+	**POST URL with params**
+
+	https://www.goibibobusiness.com/api/hotels/b2b/provisional_booking?query=hotels-6771549831164675055-20150523-20150525-1-2_0&hc=7103173328374473001&ibp=v6&rtc=IAS1RR&rpc=RRzzIAS1RR
+
+	**POST form-data**::
+	
+		fwdp		: {
+				   "vhid"		: "8544442103388575645",
+				   "guarantee_type"	: "C",
+				   "chain_code"		: "TJ",
+				   "country_code"	: "IN",
+				   "property_code"	: "HLTBLRGH",
+				   "city_code"		: "BLR001"
+				  }
+
+		customer_details: {
+			     	   "firstname"		: "abc",
+				   "lastname"		: "xyz",
+				   "email"		: "xyz@abc.com",
+				   "mobile"		: "1234567891",
+				   "country_phone_code"	: "+91",
+				   "title"		: "Mr"
+				  }
+	
+	
+* **Sample Response**::
+
+	{
+	    "data": {
+			"guest": "true",
+			"firstname": "abc",
+			"amount": "22910",
+			"gobookingid": "GOHTLDV2a0c601430192838",
+			"udf1": "temp",
+			"productinfo": "hotels-4354390963378411938-20150512-20150514-1-2_0",
+			"email": "xyz@abc.com"
+		    },
+	    "success": true
+	}
+
+
+* **Result Description**:
+
+	Returns dictionary with `provisional booking Id` and other user info used for forming secretkey to confirm booking in next API
+	
+
+* **Required Param for next API**:
+
+   #. guest
+   #. firstname
+   #. amount
+   #. gobookingid : Primary Booking ID (Provisional booking Id)
+   #. udf1
+   #. productinfo
+   #. email
+
+	
+

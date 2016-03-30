@@ -1,0 +1,72 @@
+#################
+Hotels by City ID
+#################
+
+* **Description**:
+
+   This requires  URL params to get list of hotels under specified city, like 
+	
+	* `city_id`
+	* `method`	
+
+* **Sample request URL**:
+
+   `Request Method` :  `GET`
+
+   https://www.goibibobusiness.com/api/hotels/b2b/get_city_list
+
+* **Sample Response**::
+
+	{"data":{
+		564448665437833501: {
+			city_name: "Mount Cook",
+			country_name: "New Zealand",
+			country_code: "NZ"},
+		5862745215379501543: {
+			city_name: "Coolangatta",
+			country_name: "Australia",
+			country_code: "AU"},
+		5244448900786108763: {
+			city_name: "Sogndal",
+			country_name: "Norway",
+			country_code: "NO"},
+		2824661075655676544: {
+			city_name: "Riudellots de la Selva",
+			country_name: "Spain",
+			country_code: "ES"},
+		5829413963767334229: {
+			city_name: "Subang Jaya",
+			country_name: "Malaysia",
+			country_code: "MY"},
+		5119215867763320114: {
+			city_name: "La Jonquera",
+			country_name: "Spain",
+			country_code: "ES"}
+			.
+			.
+			.
+			.
+
+		},
+
+	"success":true
+	}
+
+
+
+* **Result Description**:
+	Returns subsets of Dictionaries within a single Dictionary
+	
+	`City ID` are represented as keys for each subset dictionary and within that `keys` and `values` represents `CityName`, 
+	`CountryName` and `CountryCode`
+
+* **Required Param for next API**:
+
+   `City ID` which is key in dictionary
+
+   **Example**:
+      To search hotels under city `Mount Cook` required city ID is::
+		
+	city_id = 564448665437833501
+	
+

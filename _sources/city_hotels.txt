@@ -1,0 +1,288 @@
+###########
+City Hotels
+###########
+
+* **Description**:
+
+   To get hotels under particular city, required URL params are `city_id`, `checkin_date`, `checkout_date` and `room_string`
+
+   #. `city_id` is obtained from the `City List API`
+
+.. note:: These validations hold for City Hotels API:
+
+            * Checkout Date is after Checkin Date
+            * No. of passengers cannot exceed 9
+            * No. of rooms cannot exceed 4
+            * Minimum of 1 adult required for booking
+            * No of infants cannot exceed no. of adults
+
+* **Sample request URL**:
+
+   `Request Method` : `GET`
+   **Below URL returns the mix of properties which belongs to both gostatys and regular**
+
+   https://www.goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_0
+
+
+   Additional url param `sort_type` can be used which is optional, to sort result based on `popularity`, `priceup`, `pricedown`, `stars`, `ratings`::
+
+	    popularity : list out hotels under city in ascending popularity  order (priority)
+	    priceup    : list out hotels under city from price low to high order (mp)
+	    pricedown  : list out hotels under city from price high to low order (mp)
+	    stars      : list out hotels under city as per hotel star rating high to low order (hr)
+	    ratings    : list out hotels under city as per goibibo rating high to low order (gr)
+	
+   By default result is sorted based on `popularity`
+
+   **example**:
+
+   https://www.goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_0&sort_type=priceup
+   
+
+* **Query String Examples**
+
+     `checkin` and `checkout` date should be `ISO format (YYYYMMDD)`
+
+   * for 1 Room, 2 adult and 0 children::
+
+	query = hotels - <cityid> - <checkin> - <checkout> - <rooms> - <noofadults> _ <nofchildrens>
+
+     	https://www.goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_0
+
+   * for 1 Room, 2 adults and 1 children::
+
+     	query = hotels - <cityid> - <checkin> - <checkout> - <rooms> - <noofadults> _ <nofchildrens> _ <childage>
+
+     	http://goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_1_2
+
+   * for 1 Room, 2 adults and 2 children::
+
+     	query = hotels-<cityid>-<checkin>-<checkout>-<rooms>-<noofadults>_<nofchildrens>_<1st childage>_<2nd childage>
+
+    	https://www.goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_2_3_5
+
+   * for 2 Room::
+
+     	query = hotels-<cityid>-<checkin>-<checkout>-<rooms>-<room 1 adults>_<room 1 childrens>_<room 1 child age>-<room 2 adults>...
+
+     	http://goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-2-2_1_2-2_1_2
+
+
+* **Sample Response**::
+
+	{
+	    "data": {
+		"city_meta_info": {
+		    "la": 13.08891,
+		    "country": "India",
+		    "hotel_star": {
+			"0": 35,
+			"1": 91,
+			"2": 95,
+			"3": 102,
+			"4": 31,
+			"5": 25
+		    },
+		    "pid_max": 18,
+		    "hotel_type": {
+			"Guest House": 20,
+			"Motel": 1,
+			"Hotel": 250,
+			"Resort": 12,
+			"Service Apartment": 83,
+			"Lodge": 6,
+			"Cottage": 1,
+			"BnB": 16
+		    },
+		    "amenities": {
+			"Front desk": 281,
+			"Room Service": 224,
+			"Laundry Service": 240,
+			"Restaurant/Coffee Shop": 194,
+			"Business Services": 189,
+			"Health-Spa": 97,
+			"Swimming Pool": 53,
+			"Indoor Entertainment": 8,
+			"Parking Facility": 243,
+			"Internet": 257,
+			"Travel Assistance": 169,
+			"Outdoor Activities": 3
+		    },
+		    "location": {
+			"Chrompet": "5980605670015459141",
+			"Airport Area, Pallavaram": "2491991573375847760",
+			"Chennai City Centre": "6591325424596818560",
+			"Porur Junction, Porur": "3846578967830287514",
+			"Sriperumbudur": "5232385089093457694",
+			"Triplicane": "2472729396888514966",
+			"Mylapore": "1543613333027981934",
+			"East Coast Road": "1665394467727340726",
+			"Egmore": "2439577174087848767",
+			"Meenampakkam Road": "4745584993184805677",
+			"Vadapalani": "3405808597480696466",
+			"Guindy": "4818690473329157199",
+			"Others": "6466371864636931539",
+			"Koyambedu": "",
+			"Nandambakkam": "1139886621457352596",
+			"Periamet": "8096537110855478188"
+		    },
+		    "country_code": "IN",
+		    "lo": 80.264832,
+		    "offer_tag": {
+			"Holiday": 122,
+			"Luxury": 72,
+			"Business": 154,
+			"Budget": 134
+		    },
+		    "tg": [
+			"Budget",
+			"Business",
+			"gostays"
+		    ]	
+		    "size": 379,
+		    "cof": "<font style=\"font-size:16px;\"><span style=\"background-color: red;padding: 3px;\">5 PM to 5 PM Sale </span> &nbsp;&nbsp; 35% Off on Hotel Bookings. While booking use promo code \"GO5HTL28\" to see the final price.</font>"
+	       },
+		"city_hotel_info": [
+		{
+			"gr": 4.3,
+			"prc": 5950,
+			"ch_code": "leelagrp",
+			"ta_id": "",
+			"room_count": 103,
+			"op_wt": 10381,
+			"spf": "",
+			"cn": "INDIA",
+			"lid": "6466371864636931539",
+			"la": 13.0180910832,
+			"lo": 80.2726962424,
+			"priority": 33,
+			"mp": 8500,
+			"hotel_url": "",
+			"hr": 5,
+			"ht": [
+			    "Hotel"
+			],
+			"ta_rat": "0",
+			"ta_rcnt": 0,
+			"hn": "The Leela Palace Chennai",
+			"hc": "111668972777981337",
+			"tbig": "https://gos3.ibcdn.com/the-leela-palace-chennai-chennai-lobby-premonade-41578949srp.webp",
+			"fwdp": {},
+			"fm": [
+			    "Front desk",
+			    "Room Service",
+			    "Laundry Service",
+			    "Restaurant/Coffee Shop",
+			    "Business Services",
+			    "Health-Spa",
+			    "Swimming Pool",
+			    "Parking Facility",
+			    "Internet",
+			    "Travel Assistance"
+			],
+			"c": "Chennai",
+			"l": "Others",
+			"h_sf": "",
+			"vcid": "4354390963378411938",
+			"gir_rcnt": 4,
+			"t": "https://gos3.ibcdn.com/the-leela-palace-chennai-chennai-lobby-premonade-41578949srp.webp",
+			"ibp": "v3",
+			"mp_wt": 10381,
+			"trmhn": {
+			    "INMAA@_000335": {
+				"name": "The Leela Palace Chennai",
+				"chain_code": "00"
+			    },
+			    "promo_apply": 0
+			},
+			"op": 8500
+		    },
+	       ]
+	    },
+	    "success": true
+	}
+
+
+	 
+* **Result Description**:
+
+        Results consists two main dictionary keys under `data`::
+		* `City Meta Info`
+			It includes the city `latitude`, `longitude` and `hotel star rating` and others
+
+		* `City Hotel Info`
+			It contains list of hotels with required parameters
+
+	Meaning of Keys in City Meta Info::
+
+			la	: latitude
+			lo	: longitude
+			cof	: city offer text
+			pid_max	: page id max
+			
+			 
+	Meaning of keys in City Hotel Info::
+
+			gr      : Goibibo rating
+			prc     : Price
+			ch_code : Chain code
+			ta_id	: Tripadvisor ID
+			vcid	: City ID
+			cn	: Country name
+			la	: Latitude
+			lo	: Longitude
+			t	: Hotel image URL
+			priority: Popularity rating
+			ta_rcnt	: Tripadvisor review count
+			fwdp	: Forward params of vendors
+			lid	: Location ID
+			hr	: Hotel rating
+			ht	: Hotel type
+			ta_rat	: Tripadvisor rating
+			hn	: Hotel name
+			hc	: Hotel code
+			tbig	: Enlarged hotel image url
+			c	: City
+			l	: Location
+			h_sf	: Hotel offer text
+			gir_rcnt: Goibibo review count
+			mp	: Main price
+			ibp	: Ibibo partner
+			op	: Original price
+			tg 	: Hotel tag
+			
+
+
+* **Required Params for next API**:
+
+  	#. hotel code (hc)
+
+	#. ibibo partner (ibp)
+
+	#. forward param (fwdp)
+
+	**Examples**:
+	
+	* From above reponse few required parmaters are shown below::
+	
+		"hc"  : "8198425320797017187"
+		"ibp" : "v3"
+		"fwdp": {}
+
+	`ibp` and `fwdp` values differs for different hotels	
+
+	* For most of the domestic hotels fwdp will be null, but for few domestic and international hotels fwdp will contain some values as below::
+
+		"fwdp" :{
+			 "hc": "133717_28985_EC07F016BF5D1965C0E8A7C34EA0BB38",
+			 "sessionId": "7455adc6-c21a-41a2-a357-12000dc95969",
+			 "hn": "Wyndham Garden Hotel Newark Airport",
+		         "index": "5"
+			}
+.. note::  
+	
+	"op" is the original price given and "mp" is the main price after discount given by the hotlier, so "mp" can be used to display the price on search page
+
+	In few case ibp value may be return as NULL from city_hotels , i.e., when hotel is sold out and price info is not rendered from hotels, in those case details API would not be used
+
+	"tg" specifies whether hotel property belongs to gostatys or not, "tg" is a list, and if it contains value "gostays" in it, then that particular property belongs to gostays too.

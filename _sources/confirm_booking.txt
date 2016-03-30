@@ -1,0 +1,85 @@
+###############
+Confirm Booking
+###############
+
+* **Description**:
+
+   To confirm booking, required params are `secretkey` which shown below and `gobookingid` which is obtained from Provisional Booking API
+
+* **Sample request URL**:
+
+   `Request Method` :  `POST`
+
+   https://www.goibibobusiness.com/api/hotels/b2b/confirm_booking/
+
+   **POST form-data**
+
+   #. `secretkey`
+   #. `gobookingid`
+
+.. note:: These validations hold for Confirm Booking API:
+
+            * Valid secretkey 
+            * Valid gobookingid
+**.**
+
+   **Secret generation**:
+
+   From the result of provional booking API, following params are obtained:
+
+   #. guest
+   #. firstname
+   #. amount
+   #. gobookingid : Primary Booking ID (Provisional booking Id)
+   #. udf1
+   #. productinfo
+   #. email	
+	
+   Secret Key: The steps to generate hash key are as follows::
+	
+	"Step 1": Create a string as described below
+
+		createhash = paymentsalt + gobookingid + '|'+ str(amount) + '|' + productinfo.lower()+ '|' + firstname.lower() + '|' + email + '|' + udf1  + '|'  + guest + '|' +"travelibibo"
+
+	"Step 2": Do the Following operation on the createhash
+
+		createhash = sha512(createhash).hexdigest()
+
+	Pass the createhash as the secret given in the above post request
+
+	paymentsalt will be shared Securely with Your team.
+
+   **Example**:
+
+	**POST URL**
+
+	https://www.goibibobusiness.com/api/hotels/b2b/confirm_booking/
+
+	**POST form-data**::
+	
+		secretkey 	: 9a36d037fc2609ea32b9e73bfbced3c7e08e7d01879da6fac3865d072c8f2d857c4f44dd72f82ab2c22e848ac40a29e2761eef97cbaf66bd2b8c6f84fb221456
+
+		gobookingid	: GOHTLDV27b1d21430201525
+
+
+* **Sample Response**::
+
+	{
+	    "data": {
+		"status": "success",
+		"message": "Your booking is successful",
+		"gobookingid": "GOHTLDV27b1d21430201525",
+		"email": "rkanth1002@gmail.com",
+		"bookingid": "HTLPDKSLFV"
+	    },
+	    "success": true
+	}
+
+* **Result Description**:
+
+	Returns the `status` of booking, `gobookingid` and `bookingid`
+	
+
+.. note::
+	
+	gobookingid is the primary booking ID, required to get status of booking and used as reference further

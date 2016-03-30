@@ -1,0 +1,317 @@
+#############
+Hotel Details
+#############
+
+
+* **Description**:
+	
+	To get the detail response of hotel, required params are `query string` which is used in previous API, `hotel code (hc)`, `ibibo partner value (ibp)` and `forward params (fwdp)`	
+
+.. note:: These validations hold for Hotel Details API:
+
+            * Checkout Date is after Checkin Date
+            * No. of passengers cannot exceed 9
+            * No. of rooms cannot exceed 4
+            * Minimum of 1 adult required for booking
+            * No of infants cannot exceed no. of adults
+            * Valid hotel code
+            * Ibibo partner value (ibp) & Forward params (fwdp)
+		
+
+	
+* **Sample request URL**:
+
+	`Request Method` : `GET`
+
+	
+    	`hc`, `ibp` and `fwdp` are obtained from previous API result
+
+	**Example 1:**
+	
+	When fwdp value is null i.e.,::
+
+                fwdp={} or fwdp=""
+
+    	https://www.goibibobusiness.com/api/hotels/b2b/get_hotel_details?query=hotels-2162254155836171767-20150423-20150425-1-2_0&hc=2780717775705161640&ibp=v3&fwdp=""
+
+	**Example 2:**
+ 
+	For most of the domestic hotels `fwdp` will be null, but for few domestic and international hotels fwdp will contain some values as below::
+
+		fwdp =  {
+			"hc": "161641_26698_B2E8436B3085B78623202EF6AD2D60CE",
+			"sessionId": "5672796e-a05e-4823-8ff8-cef87be2d85b",
+			"hn" : "Outrigger Surfers Paradise",
+			"index" : "1" 
+			}
+
+	
+    	`https://www.goibibobusiness.com/api/hotels/b2b/get_hotel_details?query=hotels-2162254155836171767-20150423-20150425-1-2_0&hc=2780717775705161640&ibp=v3&fwdp={"hc":"161641_26698_B2E8436B3085B78623202EF6AD2D60CE","sessionId":"5672796e-a05e-4823-8ff8-cef87be2d85b","hn":"Outrigger Surfers Paradise","index":"1"}`_.
+
+
+* **Sample Response**::
+
+	{
+	    "data": {
+		"ch": "",
+		"gr": 0,
+		"prc": 29000,
+		"attractions": [
+		    {
+			"d": "30.0 kms",
+			"n": "Jagdish Temple"
+		    },
+		    {
+			"d": "28.3 kms",
+			"n": "Fateh Sagar Lake"
+		    },
+		    {
+			"d": "28.9 kms",
+			"n": "Maharana Pratap Memorial "
+		    },
+		    {
+			"d": "26.9 kms",
+			"n": "Sukhadia Circle"
+		    },
+		    {
+			"d": "30.0 kms",
+			"n": "Bagore Ki Haveli"
+		    }
+		],
+		"ch_code": "",
+		"pincode": "313202",
+		"facilities": [
+		    "Swimming Pool",
+		    "Bar / Lounge ",
+		    "Health Club / Gym Facility Available",
+		    "Lobby",
+		    "Parking Facilities Available",
+		    "Multi Cuisine Restaurant "
+		],
+		"ta_id": "",
+		"room_count": 38,
+		"vcid": "3369724356477798574",
+		"cn": "INDIA",
+		"ap_prox": [],
+		"la": 24.7725561098,
+		"lo": 73.7494346178,
+		"priority": 62,
+		"state": "Rajasthan",
+		"ta_rcnt": 0,
+		"tg": [
+		    "Holiday",
+		    "Luxury"
+		],
+		"free_cancel": 0,
+		"detailpage_url": "http://www.goibibo.com/hotels/detail/Udaipur/hn/3369724356477798574/3421593585826411510/na/hq/",
+		"hotel_url": "devi-garh-by-lebua-in-udaipur",
+		"rooms_data": [
+		    {
+			"room_info": {
+			    "type_name": "Palace Suite",
+			    "vendor": "ing",
+			    "description": "Spread over an area of 721 sq. ft, Palace Suites have either balconies or bay windows that provide a magnificent view of adjacent village and the mountains. The fine marbles along with semi-precious stones used to design the interiors of these suites create an aura of luxury and elegance in the rooms. Every suite has a lavishly designed bathroom that comes with jacuzzi. ",
+			    "room_view": [],
+			    "max_occ": 3,
+			    "image": "https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-palace-suite-room-33906153r.webp",
+			    "base_occ": 2,
+			    "facilities": [
+				"Air Conditioning ",
+				"Video/ DVD/ CD Player Available",
+				"Ensuite / Private Bathroom",
+				"Tea Coffee Kettle / Maker",
+				"Mini bar - On Charge ",
+				"Telephone",
+				"Safe - In - Room ",
+				"HD / LCD Satellite TV "
+			    ],
+			    "bedtype": "double",
+			    "room_count": 16,
+			    "type_code": "45000003774",
+			    "imagelist": [
+				"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-palace-suite-room-33906153r.webp",
+				"https://gos3.ibcdn.com/84a58c4e6bc211e4a39edaf4768ad8d9_1415945110457_200x133_869122.webp",
+				"https://gos3.ibcdn.com/780ff5146bc211e4b83adaf4768ad8d9_1415945103270_200x133_614652.webp",
+				"https://gos3.ibcdn.com/12408d70e26511e38a98f67d89ce50a3_1400854729416_200x123_472852.webp",
+				"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-palace-suite-bathroom2-32748612r.webp",
+				"https://gos3.ibcdn.com/8e966c326bc211e4a308daf4768ad8d9_1415945113890_200x134_535215.webp",
+				"https://gos3.ibcdn.com/7b92e08e6bc211e48351daf4768ad8d9_1415945106561_200x133_880073.webp",
+				"https://gos3.ibcdn.com/6e5237c66bc211e4b22edaf4768ad8d9_1415945099764_200x133_60886.webp"
+			    ],
+			    "gallery": [
+				[
+				    "https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-palace-suite-room-33906153r.webp",
+				    "https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-palace-suite-room-33906153g.webp",
+				    "https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-palace-suite-room-33906153g.webp",
+				    "Palace Suite Room"
+				],
+			    ],
+			    "roomsize": "26 X 26 Sq.ft."
+			},
+			"rtc": "45000003774",
+			"rtn": "Palace Suite with breakfast",
+			"rpc": "990000004300",
+			"ttc": 73216,
+			"originalRate": 0,
+			"rmt": 576000,
+			"tp": 589500,
+			"fcdt": "",
+			"contracttype": "b2c",
+			"amn": [
+			    "Accommodation",
+			    "Breakfast(CP)"
+			],
+			"tp_alltax": 662716,
+			"fc": 0,
+			"checkouttime": "1000",
+			"mp": 24563,
+			"ibp": "v3",
+			"checkintime": "1200",
+			"sf": "",
+			"op": 24563
+		    }
+		],
+		"hr": 5,
+		"offer_list": [],
+		"ht": [
+		    "Resort",
+		    "Hotel"
+		],
+		"ta_rat": "0",
+		"hn": "Devi Garh by lebua",
+		"address": "Delwara, NH8, Near Eklingji Udaipur, District Rajsamand, Rajasthan",
+		"hc": "3421593585826411510",
+		"fcl": [
+		    0,
+		    3,
+		    5,
+		    4
+		],
+		"gallery": [
+		    [
+			"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-facade-36505612th.webp",
+			"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-facade-36505613g.webp",
+			"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-facade-36505582fs.webp",
+			"Facade"
+		    ],
+		    [
+			"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-garden-suite-room-29810382th.webp",
+			"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-garden-suite-room-29810382g.webp",
+			"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-garden-suite-room-29810382fs.webp",
+			"Garden Suite Room"
+		    ],
+		    [
+			"https://gos3.ibcdn.com/b01457626bc111e49b9032e76f7e45c9_1415945123700_86x57_340272.webp",
+			"https://gos3.ibcdn.com/b01457626bc111e49b9032e76f7e45c9_1415945123756_634x422_399062.webp",
+			"https://gos3.ibcdn.com/b01457626bc111e49b9032e76f7e45c9_1415945123589_1024x683_570177.webp",
+			"Garden Suite Terrace"
+		    ],
+		    [
+			"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-garden-suite-bathroom-34322292th.webp",
+			"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-garden-suite-bathroom-34322292g.webp",
+			"https://gos3.ibcdn.com/devi-garh-by-lebua-udaipur-garden-suite-bathroom-34322292fs.webp",
+			"Garden Suite Bathroom"
+		    ]
+		],
+		"c": "Udaipur",
+		"hotelReviewUrl": "hotels/writeHotelReview/?hc=a6d4b34065b335b57b99945286ed44cc_3421593585826411510_87062992c362edc55ea939bf2c277678_1429600292",
+		"country": "INDIA",
+		"am": {
+		    "Dining": [
+			"Bar / Lounge ",
+			"Multi Cuisine Restaurant "
+		    ],
+		    "important": {
+			"Swimming Pool": 23,
+			"Parking Facilities Available": 20,
+			"Health Club / Gym Facility Available": 9
+		    },
+		    "non_important": [
+			"Lobby"
+		    ],
+		    "General": [
+			"Swimming Pool",
+			"Health Club / Gym Facility Available",
+			"Lobby",
+			"Parking Facilities Available"
+		    ]
+		},
+		"des": "A luxurious property of the world-famous hospitality group, lebua hotels and resorts, Devi Garh by lebua is an 18th century fort palace overlooking the rustic Delwara village. Located in the picturesque Aravali Range, the stunning hill-top fort palace was converted into boutique hotel. Offering a mix of the old and the new, the hotel delights guests with its modern amenities and state-of-the-art interiors.\r\n\r\nThis hotel is located at a distance of 29 km from the Maharana Pratap Airport and 31 km from Udaipur City Railway Station. For convenience of guests, the hotel offers airport transfers at reasonable charges. Situated in proximity to this hotel are some famous religious places, such as Shri Yade Mai Temple (6.3 km) and the Eklingji Temple (6.2 km). Also, guests can easily reach some renowned places, such as Fateh Prakash Palace, Lake Bapparawal and City Palace from this hotel. \r\n\r\nThere are 39 exclusively designed suites in the hotel, which have a fusion of traditional Rajasthani decor and modern amenities. Providing personalised attention and impeccable service, this hotel will certainly give its guests a pleasurable and comfortable living experience. The on-site multi-cuisine restaurant offers home-cooked delicacies in its fine setting that possesses timeless elegance. What makes the dining even more mesmerising is the live Jal Tarang and Flute recital in the background. The well-stocked bar serves an electric mix of drinks along with light snacks in a spectacular space. At Devi Garh by lebua, a wide range of best-in-class facilities are offered that include a heated swimming pool, business centre, banquet hall, library, concierge, travel desk, foreign exchange and a spa. This hotel is an ideal accommodation in Udaipur that gives an ultimate living experience. ",
+		"l": "Nathdwara/ Eklingji",
+		"h_sf": "",
+		"gir_rcnt": 0,
+		"tr_prox": [],
+		"fl": [
+		    "nobc",
+		    "nofreeint",
+		    "noint",
+		    "gym",
+		    "sp",
+		    "rest"
+		],
+		"trmhn": {
+		    "INUDR@_000001": {
+			"name": "Devi Garh by lebua",
+			"chain_code": "00"
+		    }
+		}
+	    },
+	    "success": true
+	}
+
+* **Description**:
+        Results the hotel details and different room info of hotel.
+
+	**Keys abrevations**::
+	
+		ch	: chain of Hotels
+		gr	: goibibo rating
+		prc	: price
+		d	: distance of nearby attractions
+		n	: name of the nearby attractions
+		ch_code	: chain code
+		ta_id	: trip advisor ID
+		ap_prox	: approximate distance of nearby airport
+		ta_rcnt	: trip advisor rating count 
+		tg	: tag of hotel (business, luxury)
+		st	: status of room (active or inactive)
+		nb	: near by hotels
+		rtc	: room type code
+		rtn	: room type name
+		rpc	: room price code
+		ttc	: total tax amount
+		rmt	: room amount for total number of days
+		tp	: total price
+		fcdt	: free cancellation date
+		amn	: amenities 
+		tp_alltax: total price with tax
+		fc	: free cancellation days
+		mp	: minimum price
+		hr	: hotel star rating
+		fcl	: facilities codes
+		ht	: hotel type
+		c	: city
+		am	: amenity
+		des	: hotel description
+		l	: location
+		h_sf	: hotel offer text
+		gir_cnt	: goibibo rating count
+		fl	: list of facilities
+		trmhn	: hotel code for trm	
+	
+	
+        Each room will have `rtc`, `rpc`, `fwdp` and `ibp` values which is usedful for next API (provisonal booking)
+	
+	`rpc` and `rtc` differ for different rooms
+
+.. note::
+
+	* If price of any room is not rendered from the hotels, then `rooms_data` will be null i.e., rooms_data=[ ] 
+	* If any static data (amenities, pictures, etc.,) is not rendered from hotels then key `room_info` under `rooms_data` is set as null, i.e., room_info={ }
+
+* **Required Params for next API**:
+       	#. room type code (rtc)
+	#. room plan code (rpc)
+	#. forward params (fwdp)
+	#. ibibo partner (ibp)
+

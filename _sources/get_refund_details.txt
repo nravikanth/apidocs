@@ -1,0 +1,49 @@
+##################
+Get Refund Details
+##################
+
+* **Description**:
+
+   To get booking details, required param is `gobookingid` which is obtained from Confirm Booking API
+
+* **Sample request URL**:
+
+   `Request Method` :  `GET`
+
+   https://www.goibibobusiness.com/api/hotels/b2b/get_refund_details?gobookingid=GOHTLDV27b1d21430201525
+
+.. note:: These validations hold for Get Refund Details API:
+
+            * Valid gobookingid
+*
+
+   **Example**:
+
+	**URL**
+
+	https://www.goibibobusiness.com/api/hotels/b2b/get_refund_details?gobookingid=GOHTLDV27b1d21430201525
+
+* **Sample Response**::
+
+	{
+	    "data": {
+		"refund_details": {
+		    "vendor": "ingoibibo", 
+		    "paid_amount": 5972.0, 
+		    "ibibocharges": 0, 
+		    "refund_amount": 5972.0, 
+		    "message": true, 
+		    "booking_cancellable": 1
+		}
+	    }, 
+	    "success": true
+	}
+
+* **Result Description**:
+
+	Returns the `refund_details` of booking, `paid_amount` and `refund_amount`
+	
+
+.. note::
+	
+	`refund amount` is based on the cancellation policy, `booking_cancellable` is flag to indicate whether the booking can be cancelled or not, if `1` then cancellable else non-cancellable

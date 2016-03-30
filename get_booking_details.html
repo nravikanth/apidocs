@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Get Booking Details &mdash; Hotels b2b API 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Hotels b2b API 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Get Refund Details" href="get_refund_details.html" />
+    <link rel="prev" title="Get Booking Status" href="get_booking.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="get_refund_details.html" title="Get Refund Details"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="get_booking.html" title="Get Booking Status"
+             accesskey="P">previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="get-booking-details">
+<h1>Get Booking Details<a class="headerlink" href="#get-booking-details" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first"><strong>Description</strong>:</p>
+<blockquote>
+<div><p>To get booking details, required param is <cite>gobookingid</cite> which is obtained from Confirm Booking API</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Sample request URL</strong>:</p>
+<blockquote>
+<div><p><cite>Request Method</cite> :  <cite>GET</cite></p>
+<p><a class="reference external" href="https://www.goibibobusiness.com/api/hotels/b2b/get_booking_details?gobookingid=GOHTLDV27b1d21430201525">https://www.goibibobusiness.com/api/hotels/b2b/get_booking_details?gobookingid=GOHTLDV27b1d21430201525</a></p>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>These validations hold for Get Booking Details API:</p>
+<ul class="last simple">
+<li>Valid gobookingid</li>
+</ul>
+</div>
+<ul>
+<li><p class="first"><strong>Example</strong>:</p>
+<blockquote>
+<div><p><strong>URL</strong></p>
+<p><a class="reference external" href="https://www.goibibobusiness.com/api/hotels/b2b/get_booking_details?gobookingid=GOHTLDV27b1d21430201525">https://www.goibibobusiness.com/api/hotels/b2b/get_booking_details?gobookingid=GOHTLDV27b1d21430201525</a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Sample Response</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;RoomType&quot;</span><span class="p">:</span> <span class="s">&quot;Club Room with Breakfast&quot;</span><span class="p">,</span>
+        <span class="s">&quot;ci&quot;</span><span class="p">:</span> <span class="s">&quot;2015-06-19&quot;</span><span class="p">,</span>
+        <span class="s">&quot;bookingid&quot;</span><span class="p">:</span> <span class="s">&quot;HTL987JAM2&quot;</span><span class="p">,</span>
+        <span class="s">&quot;co&quot;</span><span class="p">:</span> <span class="s">&quot;2015-06-20&quot;</span><span class="p">,</span>
+        <span class="s">&quot;HotelName&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;rtc&quot;</span><span class="p">:</span> <span class="s">&quot;45000007009&quot;</span><span class="p">,</span>
+        <span class="s">&quot;customer_details&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;firstname&quot;</span><span class="p">:</span> <span class="s">&quot;ravig&quot;</span><span class="p">,</span>
+            <span class="s">&quot;title&quot;</span><span class="p">:</span> <span class="s">&quot;Mr&quot;</span><span class="p">,</span>
+            <span class="s">&quot;mobile&quot;</span><span class="p">:</span> <span class="s">&quot;9986473971&quot;</span><span class="p">,</span>
+            <span class="s">&quot;lastname&quot;</span><span class="p">:</span> <span class="s">&quot;na&quot;</span><span class="p">,</span>
+            <span class="s">&quot;country_phone_code&quot;</span><span class="p">:</span> <span class="s">&quot;+91&quot;</span><span class="p">,</span>
+            <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;rkanth1002@gmail.com&quot;</span>
+        <span class="p">},</span>
+        <span class="s">&quot;HotelAddress&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;gobookingid&quot;</span><span class="p">:</span> <span class="s">&quot;GOHTLDV229d8e1432635791&quot;</span><span class="p">,</span>
+        <span class="s">&quot;grandtotal&quot;</span><span class="p">:</span> <span class="mi">5972</span><span class="p">,</span>
+        <span class="s">&quot;phone&quot;</span><span class="p">:</span> <span class="s">&quot;080 25584242&quot;</span><span class="p">,</span>
+        <span class="s">&quot;noofNights&quot;</span><span class="p">:</span> <span class="s">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Inclusions&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s">&quot;Accommodation&quot;</span><span class="p">,</span>
+            <span class="s">&quot;Breakfast(CP)&quot;</span>
+        <span class="p">],</span>
+        <span class="s">&quot;rpc&quot;</span><span class="p">:</span> <span class="s">&quot;990000008611&quot;</span><span class="p">,</span>
+        <span class="s">&quot;noofChildren&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s">&quot;cpdata&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;cancelPolicy&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s">&quot;No Show, Cancellation charges will be 100 % Cost.&quot;</span><span class="p">,</span>
+                <span class="s">&quot;If You cancel your Hotel booking before Jun 17, 2015 09:59 AM,                      Cancellation charges will be Rs. 0 Fixed Cost.&quot;</span><span class="p">,</span>
+                <span class="s">&quot;If You cancel your Hotel booking from Jun 17, 2015 10:00 AM to Jun 19, 2015 09:59 AM,                      Cancellation charges will be 1 Night Cost.&quot;</span><span class="p">,</span>
+                <span class="s">&quot;On cancellation of bookings done using promotional codes, the charges are calculated on total price&quot;</span><span class="p">,</span>
+                <span class="s">&quot;Most hotels do not allow unmarried / unrelated couples to check-in. This is at full discretion of the hotel management. No refund would be applicable in case the hotel denies check-in under such circumstances .&quot;</span><span class="p">,</span>
+                <span class="s">&quot;On cancellation of bookings done using promotional codes, the charges are calculated on total price&quot;</span>
+            <span class="p">],</span>
+            <span class="s">&quot;notice&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s">&quot;hotelPolicy&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s">&quot;The standard check-in time is 02:00 PM and the standard check-out time is 12:00 PM.</span><span class="se">\n</span><span class="s">                Early check-in or late check-out is strictly subjected to availability</span><span class="se">\n</span><span class="s">                and may be chargeable by the hotel. Any early check-in or late check-out</span><span class="se">\n</span><span class="s">                request must be directed and reconfirmed with hotel directly&quot;</span><span class="p">,</span>
+                <span class="s">&quot;Hotel may charge compulsory gala dinner supplement on Christmas / New Year&#39;s eve or other festive periods. Any such supplements need to be paid directly at the hotel.&quot;</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s">&quot;latitude&quot;</span><span class="p">:</span> <span class="mf">12.9748035965</span><span class="p">,</span>
+        <span class="s">&quot;hc&quot;</span><span class="p">:</span> <span class="s">&quot;1719412671873990301&quot;</span><span class="p">,</span>
+        <span class="s">&quot;roomWiseRent&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s">&quot;childs&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s">&quot;adults&quot;</span><span class="p">:</span> <span class="s">&quot;2&quot;</span><span class="p">,</span>
+                <span class="s">&quot;roomNo&quot;</span><span class="p">:</span> <span class="s">&quot;Room 1&quot;</span><span class="p">,</span>
+                <span class="s">&quot;orrate&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+                <span class="s">&quot;room_total&quot;</span><span class="p">:</span> <span class="s">&quot;5000&quot;</span><span class="p">,</span>
+                <span class="s">&quot;originalRate&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s">&quot;avgRent&quot;</span><span class="p">:</span> <span class="mi">5000</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s">&quot;noofAdults&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s">&quot;vcid&quot;</span><span class="p">:</span> <span class="s">&quot;6771549831164675055&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Result Description</strong>:</p>
+<blockquote>
+<div><p>Returns the <cite>details</cite> of booking</p>
+<p><strong>Keys abrevations</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>ci      : checkin date
+co      : checkout date
+vcid    : City ID
+hc      : Hotel ID
+rtc     : room type code
+rpc     : room price code
+cpdata  : Hotel cancel policy
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="get_booking.html"
+                        title="previous chapter">Get Booking Status</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="get_refund_details.html"
+                        title="next chapter">Get Refund Details</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/get_booking_details.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="get_refund_details.html" title="Get Refund Details"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="get_booking.html" title="Get Booking Status"
+             >previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, ibibo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

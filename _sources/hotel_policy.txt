@@ -1,0 +1,75 @@
+###################
+Hotel Cancel Policy
+###################
+
+* **Description**:
+
+	To get the Hotel policy and Hotel Cancel policy, required params are `query string`, `hotel code (hc)`, `Room type code (rtc)`, `Room plan code (rpc)`, `forward params (fwdp)` and `ibibo partner value (ibp)`
+
+	#. Hotel code (hc) can be used as used in `Hotel Details API`
+	#. Room type code (rtc) is obtained from `Hotel Details API` under `rooms_data`
+	#. Room plan code (rpc) is obtained from `Hotel Details API` under `rooms_data`
+	#. Forward params is obtained from `Hotel Details API` under `rooms_data`
+	#. Ibibo partner value is obtained from `Hotel Details API` under `rooms_data`
+	#. Offercode value, which is obtained from `Hotel Details API` under `rooms_data`
+
+.. note:: These validations hold for Hotel Policy API:
+
+            * Checkout Date is after Checkin Date
+            * No. of passengers cannot exceed 9
+            * Minimum of 1 adult required for booking
+            * No. of rooms cannot exceed 4
+            * No of infants cannot exceed no. of adults
+            * Valid hotel code
+            * Room plan code (rpc) & Room type code (rtc)
+            * Ibibo partner value (ibp) & Forward params (fwdp)
+
+	
+* **Sample request URL**:
+
+   `Request Method` :  `GET`
+
+   `rtc`, `rpc` and `ibp` values will be obtained from Hotel details API
+
+   **Example 1:**
+
+	When fwdp value and offercode is null i.e.,::
+
+		fwdp={}
+		offercode=''
+	
+	`https://www.goibibobusiness.com/api/hotels/b2b/get_hotel_cancel_policy?query=hotels-2497145202766736847-20150425-20150426-1-1_0&rpc=1&rtc=1&hc=2497145202766736847&fwdp={}&ibp=v4`.
+
+   **Example 2**
+
+	when fwdp is not null ie..::
+
+		fwdp=	{
+			"index":"9",
+			"HotelName":"Grand Mercure Roxy",
+			"HotelCode":"CEN_16532_AB94867E500004E7DFD4A3B3829AF4C5",
+			"sessionId":"7d88128e-7db7-40ce-97d5-d23277bb4ea3",
+			"query":"hotels-7535647685670244982-20150430-20150501-1-1_0-foo"
+			}
+		offercode = 98778656 
+
+   	`https://www.goibibobusiness.com/api/hotels/b2b/get_hotel_cancel_policy?query=hotels-2497145202766736847-20150425-20150426-1-1_0&rpc=1&rtc=1&hc=2497145202766736847&fwdp={"index":"9","HotelName":"Grand Mercure Roxy","HotelCode":"CEN_16532_AB94867E500004E7DFD4A3B3829AF4C5","sessionId":"7d88128e-7db7-40ce-97d5-d23277bb4ea3","query":"hotels-7535647685670244982-20150430-20150501-1-1_0-foo"}&ibp=v4&offercode=98778656`.
+
+
+* **Sample Response**::
+
+	{
+	    "data": {
+		"cancelPolicy": [
+		    "This Booking is Non Refundable.",
+		    "On cancellation of bookings done using promotional codes, the charges are calculated on total price",
+		    "Most hotels do not allow unmarried / unrelated couples to check-in. This is at full discretion of the hotel management. No refund would be applicable in case the hotel denies check-in under such circumstances ."
+		],
+		"hotelPolicy": []
+	    },
+	    "success": true
+	}
+
+* **Description of response**:
+	Returns hotel cancel policy and hotel policy
+

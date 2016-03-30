@@ -1,0 +1,46 @@
+##################
+Get Booking Status
+##################
+
+* **Description**:
+
+   To get booking status, required param is `gobookingid` which is obtained from Provisional Booking or from Confirm Booking API
+
+* **Sample request URL**:
+
+   `Request Method` :  `GET`
+
+   https://www.goibibobusiness.com/api/hotels/b2b/get_booking_status?gobookingid=GOHTLDV27b1d21430201525
+
+.. note:: These validations hold for Get Booking Status API:
+
+            * Valid gobookingid
+*
+
+   **Example**:
+
+	**URL**
+
+	https://www.goibibobusiness.com/api/hotels/b2b/get_booking_status?gobookingid=GOHTLDV27b1d21430201525
+
+* **Sample Response**::
+
+	{
+	    "data": {
+		"status": "success",
+		"message": "Your booking is successful",
+		"gobookingid": "GOHTLDV27b1d21430201525",
+		"email": "rkanth1002@gmail.com",
+		"bookingid": "HTLPDKSLFV"
+	    },
+	    "success": true
+	}
+
+* **Result Description**:
+
+	Returns the `status` of booking, `gobookingid` and `bookingid`
+	
+
+.. note::
+	
+	gobookingid is the primary booking ID, required to get status of booking and used as reference further

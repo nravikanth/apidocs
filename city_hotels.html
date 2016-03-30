@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>City Hotels &mdash; Hotels b2b API 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Hotels b2b API 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Hotel Details" href="hotel_details.html" />
+    <link rel="prev" title="City List" href="city_list.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="hotel_details.html" title="Hotel Details"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="city_list.html" title="City List"
+             accesskey="P">previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="city-hotels">
+<h1>City Hotels<a class="headerlink" href="#city-hotels" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first"><strong>Description</strong>:</p>
+<blockquote>
+<div><p>To get hotels under particular city, required URL params are <cite>city_id</cite>, <cite>checkin_date</cite>, <cite>checkout_date</cite> and <cite>room_string</cite></p>
+<ol class="arabic simple">
+<li><cite>city_id</cite> is obtained from the <cite>City List API</cite></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>These validations hold for City Hotels API:</p>
+<ul class="last simple">
+<li>Checkout Date is after Checkin Date</li>
+<li>No. of passengers cannot exceed 9</li>
+<li>No. of rooms cannot exceed 4</li>
+<li>Minimum of 1 adult required for booking</li>
+<li>No of infants cannot exceed no. of adults</li>
+</ul>
+</div>
+<ul>
+<li><p class="first"><strong>Sample request URL</strong>:</p>
+<blockquote>
+<div><p><cite>Request Method</cite> : <cite>GET</cite>
+<strong>Below URL returns the mix of properties which belongs to both gostatys and regular</strong></p>
+<p><a class="reference external" href="https://www.goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_0">https://www.goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_0</a></p>
+<p>Additional url param <cite>sort_type</cite> can be used which is optional, to sort result based on <cite>popularity</cite>, <cite>priceup</cite>, <cite>pricedown</cite>, <cite>stars</cite>, <cite>ratings</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre>popularity : list out hotels under city in ascending popularity  order (priority)
+priceup    : list out hotels under city from price low to high order (mp)
+pricedown  : list out hotels under city from price high to low order (mp)
+stars      : list out hotels under city as per hotel star rating high to low order (hr)
+ratings    : list out hotels under city as per goibibo rating high to low order (gr)
+</pre></div>
+</div>
+<p>By default result is sorted based on <cite>popularity</cite></p>
+<p><strong>example</strong>:</p>
+<p><a class="reference external" href="https://www.goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_0&amp;sort_type=priceup">https://www.goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_0&amp;sort_type=priceup</a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Query String Examples</strong></p>
+<blockquote>
+<div><blockquote>
+<div><p><cite>checkin</cite> and <cite>checkout</cite> date should be <cite>ISO format (YYYYMMDD)</cite></p>
+</div></blockquote>
+<ul>
+<li><p class="first">for 1 Room, 2 adult and 0 children:</p>
+<div class="highlight-python"><div class="highlight"><pre>query = hotels - &lt;cityid&gt; - &lt;checkin&gt; - &lt;checkout&gt; - &lt;rooms&gt; - &lt;noofadults&gt; _ &lt;nofchildrens&gt;
+
+https://www.goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_0
+</pre></div>
+</div>
+</li>
+<li><p class="first">for 1 Room, 2 adults and 1 children:</p>
+<div class="highlight-python"><div class="highlight"><pre>query = hotels - &lt;cityid&gt; - &lt;checkin&gt; - &lt;checkout&gt; - &lt;rooms&gt; - &lt;noofadults&gt; _ &lt;nofchildrens&gt; _ &lt;childage&gt;
+
+http://goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_1_2
+</pre></div>
+</div>
+</li>
+<li><p class="first">for 1 Room, 2 adults and 2 children:</p>
+<div class="highlight-python"><div class="highlight"><pre>query = hotels-&lt;cityid&gt;-&lt;checkin&gt;-&lt;checkout&gt;-&lt;rooms&gt;-&lt;noofadults&gt;_&lt;nofchildrens&gt;_&lt;1st childage&gt;_&lt;2nd childage&gt;
+
+https://www.goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-1-2_2_3_5
+</pre></div>
+</div>
+</li>
+<li><p class="first">for 2 Room:</p>
+<div class="highlight-python"><div class="highlight"><pre>query = hotels-&lt;cityid&gt;-&lt;checkin&gt;-&lt;checkout&gt;-&lt;rooms&gt;-&lt;room 1 adults&gt;_&lt;room 1 childrens&gt;_&lt;room 1 child age&gt;-&lt;room 2 adults&gt;...
+
+http://goibibobusiness.com/api/hotels/b2b/get_city_hotels?query=hotels-2162254155836171767-20150423-20150425-2-2_1_2-2_1_2
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Sample Response</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>{
+    &quot;data&quot;: {
+        &quot;city_meta_info&quot;: {
+            &quot;la&quot;: 13.08891,
+            &quot;country&quot;: &quot;India&quot;,
+            &quot;hotel_star&quot;: {
+                &quot;0&quot;: 35,
+                &quot;1&quot;: 91,
+                &quot;2&quot;: 95,
+                &quot;3&quot;: 102,
+                &quot;4&quot;: 31,
+                &quot;5&quot;: 25
+            },
+            &quot;pid_max&quot;: 18,
+            &quot;hotel_type&quot;: {
+                &quot;Guest House&quot;: 20,
+                &quot;Motel&quot;: 1,
+                &quot;Hotel&quot;: 250,
+                &quot;Resort&quot;: 12,
+                &quot;Service Apartment&quot;: 83,
+                &quot;Lodge&quot;: 6,
+                &quot;Cottage&quot;: 1,
+                &quot;BnB&quot;: 16
+            },
+            &quot;amenities&quot;: {
+                &quot;Front desk&quot;: 281,
+                &quot;Room Service&quot;: 224,
+                &quot;Laundry Service&quot;: 240,
+                &quot;Restaurant/Coffee Shop&quot;: 194,
+                &quot;Business Services&quot;: 189,
+                &quot;Health-Spa&quot;: 97,
+                &quot;Swimming Pool&quot;: 53,
+                &quot;Indoor Entertainment&quot;: 8,
+                &quot;Parking Facility&quot;: 243,
+                &quot;Internet&quot;: 257,
+                &quot;Travel Assistance&quot;: 169,
+                &quot;Outdoor Activities&quot;: 3
+            },
+            &quot;location&quot;: {
+                &quot;Chrompet&quot;: &quot;5980605670015459141&quot;,
+                &quot;Airport Area, Pallavaram&quot;: &quot;2491991573375847760&quot;,
+                &quot;Chennai City Centre&quot;: &quot;6591325424596818560&quot;,
+                &quot;Porur Junction, Porur&quot;: &quot;3846578967830287514&quot;,
+                &quot;Sriperumbudur&quot;: &quot;5232385089093457694&quot;,
+                &quot;Triplicane&quot;: &quot;2472729396888514966&quot;,
+                &quot;Mylapore&quot;: &quot;1543613333027981934&quot;,
+                &quot;East Coast Road&quot;: &quot;1665394467727340726&quot;,
+                &quot;Egmore&quot;: &quot;2439577174087848767&quot;,
+                &quot;Meenampakkam Road&quot;: &quot;4745584993184805677&quot;,
+                &quot;Vadapalani&quot;: &quot;3405808597480696466&quot;,
+                &quot;Guindy&quot;: &quot;4818690473329157199&quot;,
+                &quot;Others&quot;: &quot;6466371864636931539&quot;,
+                &quot;Koyambedu&quot;: &quot;&quot;,
+                &quot;Nandambakkam&quot;: &quot;1139886621457352596&quot;,
+                &quot;Periamet&quot;: &quot;8096537110855478188&quot;
+            },
+            &quot;country_code&quot;: &quot;IN&quot;,
+            &quot;lo&quot;: 80.264832,
+            &quot;offer_tag&quot;: {
+                &quot;Holiday&quot;: 122,
+                &quot;Luxury&quot;: 72,
+                &quot;Business&quot;: 154,
+                &quot;Budget&quot;: 134
+            },
+            &quot;tg&quot;: [
+                &quot;Budget&quot;,
+                &quot;Business&quot;,
+                &quot;gostays&quot;
+            ]
+            &quot;size&quot;: 379,
+            &quot;cof&quot;: &quot;&lt;font style=\&quot;font-size:16px;\&quot;&gt;&lt;span style=\&quot;background-color: red;padding: 3px;\&quot;&gt;5 PM to 5 PM Sale &lt;/span&gt; &amp;nbsp;&amp;nbsp; 35% Off on Hotel Bookings. While booking use promo code \&quot;GO5HTL28\&quot; to see the final price.&lt;/font&gt;&quot;
+       },
+        &quot;city_hotel_info&quot;: [
+        {
+                &quot;gr&quot;: 4.3,
+                &quot;prc&quot;: 5950,
+                &quot;ch_code&quot;: &quot;leelagrp&quot;,
+                &quot;ta_id&quot;: &quot;&quot;,
+                &quot;room_count&quot;: 103,
+                &quot;op_wt&quot;: 10381,
+                &quot;spf&quot;: &quot;&quot;,
+                &quot;cn&quot;: &quot;INDIA&quot;,
+                &quot;lid&quot;: &quot;6466371864636931539&quot;,
+                &quot;la&quot;: 13.0180910832,
+                &quot;lo&quot;: 80.2726962424,
+                &quot;priority&quot;: 33,
+                &quot;mp&quot;: 8500,
+                &quot;hotel_url&quot;: &quot;&quot;,
+                &quot;hr&quot;: 5,
+                &quot;ht&quot;: [
+                    &quot;Hotel&quot;
+                ],
+                &quot;ta_rat&quot;: &quot;0&quot;,
+                &quot;ta_rcnt&quot;: 0,
+                &quot;hn&quot;: &quot;The Leela Palace Chennai&quot;,
+                &quot;hc&quot;: &quot;111668972777981337&quot;,
+                &quot;tbig&quot;: &quot;https://gos3.ibcdn.com/the-leela-palace-chennai-chennai-lobby-premonade-41578949srp.webp&quot;,
+                &quot;fwdp&quot;: {},
+                &quot;fm&quot;: [
+                    &quot;Front desk&quot;,
+                    &quot;Room Service&quot;,
+                    &quot;Laundry Service&quot;,
+                    &quot;Restaurant/Coffee Shop&quot;,
+                    &quot;Business Services&quot;,
+                    &quot;Health-Spa&quot;,
+                    &quot;Swimming Pool&quot;,
+                    &quot;Parking Facility&quot;,
+                    &quot;Internet&quot;,
+                    &quot;Travel Assistance&quot;
+                ],
+                &quot;c&quot;: &quot;Chennai&quot;,
+                &quot;l&quot;: &quot;Others&quot;,
+                &quot;h_sf&quot;: &quot;&quot;,
+                &quot;vcid&quot;: &quot;4354390963378411938&quot;,
+                &quot;gir_rcnt&quot;: 4,
+                &quot;t&quot;: &quot;https://gos3.ibcdn.com/the-leela-palace-chennai-chennai-lobby-premonade-41578949srp.webp&quot;,
+                &quot;ibp&quot;: &quot;v3&quot;,
+                &quot;mp_wt&quot;: 10381,
+                &quot;trmhn&quot;: {
+                    &quot;INMAA@_000335&quot;: {
+                        &quot;name&quot;: &quot;The Leela Palace Chennai&quot;,
+                        &quot;chain_code&quot;: &quot;00&quot;
+                    },
+                    &quot;promo_apply&quot;: 0
+                },
+                &quot;op&quot;: 8500
+            },
+       ]
+    },
+    &quot;success&quot;: true
+}
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Result Description</strong>:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Results consists two main dictionary keys under <cite>data</cite>::</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt><cite>City Meta Info</cite></dt>
+<dd><p class="first last">It includes the city <cite>latitude</cite>, <cite>longitude</cite> and <cite>hotel star rating</cite> and others</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><cite>City Hotel Info</cite></dt>
+<dd><p class="first last">It contains list of hotels with required parameters</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Meaning of Keys in City Meta Info:</p>
+<div class="highlight-python"><div class="highlight"><pre>la      : latitude
+lo      : longitude
+cof     : city offer text
+pid_max : page id max
+</pre></div>
+</div>
+<p>Meaning of keys in City Hotel Info:</p>
+<div class="highlight-python"><div class="highlight"><pre>gr      : Goibibo rating
+prc     : Price
+ch_code : Chain code
+ta_id   : Tripadvisor ID
+vcid    : City ID
+cn      : Country name
+la      : Latitude
+lo      : Longitude
+t       : Hotel image URL
+priority: Popularity rating
+ta_rcnt : Tripadvisor review count
+fwdp    : Forward params of vendors
+lid     : Location ID
+hr      : Hotel rating
+ht      : Hotel type
+ta_rat  : Tripadvisor rating
+hn      : Hotel name
+hc      : Hotel code
+tbig    : Enlarged hotel image url
+c       : City
+l       : Location
+h_sf    : Hotel offer text
+gir_rcnt: Goibibo review count
+mp      : Main price
+ibp     : Ibibo partner
+op      : Original price
+tg      : Hotel tag
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Required Params for next API</strong>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>hotel code (hc)</li>
+<li>ibibo partner (ibp)</li>
+<li>forward param (fwdp)</li>
+</ol>
+<p><strong>Examples</strong>:</p>
+<ul>
+<li><p class="first">From above reponse few required parmaters are shown below:</p>
+<div class="highlight-python"><div class="highlight"><pre>&quot;hc&quot;  : &quot;8198425320797017187&quot;
+&quot;ibp&quot; : &quot;v3&quot;
+&quot;fwdp&quot;: {}
+</pre></div>
+</div>
+</li>
+</ul>
+<p><cite>ibp</cite> and <cite>fwdp</cite> values differs for different hotels</p>
+<ul>
+<li><p class="first">For most of the domestic hotels fwdp will be null, but for few domestic and international hotels fwdp will contain some values as below:</p>
+<div class="highlight-python"><div class="highlight"><pre>&quot;fwdp&quot; :{
+         &quot;hc&quot;: &quot;133717_28985_EC07F016BF5D1965C0E8A7C34EA0BB38&quot;,
+         &quot;sessionId&quot;: &quot;7455adc6-c21a-41a2-a357-12000dc95969&quot;,
+         &quot;hn&quot;: &quot;Wyndham Garden Hotel Newark Airport&quot;,
+         &quot;index&quot;: &quot;5&quot;
+        }
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>&#8220;op&#8221; is the original price given and &#8220;mp&#8221; is the main price after discount given by the hotlier, so &#8220;mp&#8221; can be used to display the price on search page</p>
+<p>In few case ibp value may be return as NULL from city_hotels , i.e., when hotel is sold out and price info is not rendered from hotels, in those case details API would not be used</p>
+<p class="last">&#8220;tg&#8221; specifies whether hotel property belongs to gostatys or not, &#8220;tg&#8221; is a list, and if it contains value &#8220;gostays&#8221; in it, then that particular property belongs to gostays too.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="city_list.html"
+                        title="previous chapter">City List</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="hotel_details.html"
+                        title="next chapter">Hotel Details</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/city_hotels.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="hotel_details.html" title="Hotel Details"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="city_list.html" title="City List"
+             >previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, ibibo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

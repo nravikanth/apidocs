@@ -1,0 +1,127 @@
+###########
+Error Codes
+###########
+
+* **List of error codes**
+
+            **"101": "Internal Server Error"**::
+		
+		Returned whenever error occured in backend code
+
+            **"102": "Check in Date Should be less than today date/ Checkout Date should be greater than check in date"**::
+		
+		Returned when checkin and checkout date or not in expected order, i.e., checkin date should be greater or equal to current date and checkout date should be greater than checkin date
+
+            **"103": "max 4 adults per rooms and minumum 1 adult per rooms and max 2 children per room"**::
+		
+		Returned when adult or children count mismatches
+
+            **"104": "No of adults should be greater than 0 and no of rooms should be greater than 0"**::
+
+		Returned when adult or room count mismatches
+
+            **"105": "Hotel code required"**::
+
+		Returned when hotel code (hc) is not sent
+
+            **"106": "City code required"**::
+
+		Returned when city id is not sent in query string
+
+            **"107": "Cancellation Failed, please contact goibibo support"**::
+		
+		Return when cancellation failed, i.e., when error occured while cancelling booking 	
+
+            **"108": "BookingID is required"**::
+
+		Returned when BookingId is not sent
+
+            **"109": "Required Query String (Query)"**::
+
+		Returned when query string is not in required format
+
+            **"110": "Couldn't find any property"**::
+
+		Returned when hotels are not found under searched city
+
+            **"111": "Couldn't find booking"**::
+
+		Returned when booking sent while confirm booking not found in database
+
+            **"112": "You dont have enough amount in your account to book"**::
+
+		Returned when vendor doesn't have sufficient amoutn to make a booking
+
+            **"113": "Vendor account not found"**::
+
+		Returned when vendor account doesn't exits in database
+
+            **"114": "Vendor not Exists"**::
+
+		Returned when user authentication fails while making booking
+
+            **"115": "Invalid hash key"**::
+
+		Returned when hash key sent by user doesn't match with required hash key 
+
+            **"116": "Error in Booking"**::
+		
+		Returned when booking doesn't happen
+
+            **"117": "Duplicate Booking"**::
+
+		Returned when BookingId sent while confirm booking already confirmed or failed booking
+
+            **"118": "BookingID and SecretKey is required"**::
+
+		Returned when BookingId or SecretKey (haskey) is not sent
+
+            **"119": "Invalid room count"**::
+
+		Returned when room count sent is not valid 
+
+            **"120": "Invalid Query string"**::
+
+		Returned when invalid query string is sent
+
+            **"121": "ibp and fwdp are required"**::
+
+		Returned when ibp or fwdp params are missing
+
+            **"122": "rpc and rtc are required"**::
+		
+		Returned when rtc or rpc params are missing
+
+            **"123": "Invalid customer details"**::
+
+		Returned when any of the required customer detail is missed while provisional booking
+
+            **"124": "Invalid ibp value"**::
+
+		Returned when ibp value null
+	
+	    **"125": "Invalid sort_type value"**::
+
+		Returned when sort type sent during city hotels API doesn't match with required key 
+
+	    **"126": "Booking cannot be cancelled"**::
+
+		Returned when provided gobookingid is already cancelled or doesn't have cancellation option 
+
+	    **"127": "Booking cannot be cancelled Online, Please contact Goibibo support team"**::
+
+		Returned when cancellation for booking cannot be done online 
+
+
+* **Sample reponse when error occurred**::
+
+	{
+	    "errors": {
+		"hotel_ids": "",
+		"message": "Check in Date Should be less than today date/ Checkout Date should be greater than check in date",
+		"error_code": 102
+	    },
+	    "api_version": 1,
+	    "success": false
+	}
+	

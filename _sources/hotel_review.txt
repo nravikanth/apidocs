@@ -1,0 +1,210 @@
+############
+Hotel Review
+############
+
+* **Description**:
+
+        To get the review of hotel, required param is `hotel code (hc)` which is obtained from `city_hotels` API 
+  	
+	
+	**limit** and **offset** can also be sent in URL for pagination purpose, which is not mandatory, its 50 and 10 by default
+
+* **Sample request URL**:
+
+   `Request Method` :  `GET`
+
+   https://www.goibibobusiness.com/api/hotels/b2b/v2/get_hotel_review/?hc=8544442103388575645&limit=50&offset=10
+
+* **Sample Response**::
+
+	{
+	    "data": [
+		{
+		    "likeCount": 0,
+		    "images": [],
+		    "reviewer": {
+			"lastName": "Guest",
+			"firstName": "Anonymous"
+		    },
+		    "id": "5531af223d0eb0c74db3ae65",
+		    "imageCount": 0,
+		    "ratings": {
+			"Service Quality": 5,
+			"Value For Money": 5,
+			"Cleanliness": 5,
+			"Food And Drinks": 5,
+			"Amenities": 5,
+			"Location": 5
+		    },
+		    "viewedCount": 15,
+		    "hotelName": "The Gateway Hotel On Residency Road A Taj Hotel",
+		    "deviceType": "web",
+		    "createdAt": "2015-04-18T01:10:58.027Z",
+		    "reviewContent": "amazing breakfast. clean and quite place! very friendly staffs",
+		    "totalRating": 5,
+		    "reviewerId": "545e6f65ed0c9f5536e82370",
+		    "reviewTitle": "too good for the price",
+		    "monthOfStay": 201504,
+		    "submittedAt": "2015-04-23T05:45:54.375Z",
+		    "firstName": "Karthikeyan",
+		    "lastName": "Murugan",
+		    "fromBooking": true,
+		    "hotelCity": "Bangalore",
+		    "voyagerId": "8544442103388575645",
+		    "isAnonymous": true
+		},
+		{
+		    "likeCount": 0,
+		    "images": [],
+		    "reviewer": {
+			"lastName": "Guest",
+			"firstName": "Anonymous"
+		    },
+		    "id": "550d35843c0969f3224c7b57",
+		    "imageCount": 0,
+		    "ratings": {
+			"Service Quality": 4,
+			"Value For Money": 4,
+			"Cleanliness": 4,
+			"Food And Drinks": 4,
+			"Amenities": 4,
+			"Location": 5
+		    },
+		    "viewedCount": 111,
+		    "hotelName": "The Gateway Hotel On Residency Road A Taj Hotel",
+		    "deviceType": "telecalling",
+		    "createdAt": "2015-03-21T09:10:28.434Z",
+		    "reviewContent": "very good staff...very supportive...and the best part is that the hotel is centrally located...so very convenient to access and its nearby everything...and i guess its not just good for any particular category..its good for all..",
+		    "totalRating": 4,
+		    "reviewerId": "550d35843c0969f3224c7b56",
+		    "reviewTitle": "Centrally located...",
+		    "monthOfStay": 201503,
+		    "submittedAt": "2015-04-19T19:40:02.624Z",
+		    "firstName": "Pallavi",
+		    "lastName": "Gupta",
+		    "fromBooking": true,
+		    "hotelCity": "Bangalore",
+		    "recommendations": [
+			"Business Travel",
+			"Couples",
+			"Families",
+			"Group Of Friends",
+			"Others"
+		    ],
+		    "voyagerId": "8544442103388575645",
+		    "isAnonymous": true
+		},
+		{
+		    "likeCount": 0,
+		    "images": [],
+		    "reviewer": {
+			"lastName": "Thangapazham",
+			"firstName": "Radhasivaprasad"
+		    },
+		    "id": "55062dda8310c3e90f7cbdd4",
+		    "imageCount": 0,
+		    "ratings": {
+			"Service Quality": 5,
+			"Amenities": 5,
+			"Location": 5,
+			"Value For Money": 5
+		    },
+		    "viewedCount": 300,
+		    "hotelName": "The Gateway Hotel On Residency Road A Taj Hotel",
+		    "deviceType": "android",
+		    "createdAt": "2015-03-16T01:11:54.270Z",
+		    "reviewContent": "",
+		    "totalRating": 5,
+		    "reviewerId": "548febe46c82e9f42bd88b33",
+		    "reviewTitle": "",
+		    "monthOfStay": 201503,
+		    "submittedAt": "2015-04-13T14:29:01.703Z",
+		    "firstName": "Radhasivaprasad",
+		    "lastName": "Thangapazham",
+		    "fromBooking": true,
+		    "hotelCity": "Bangalore",
+		    "recommendations": [
+			"Others"
+		    ],
+		    "voyagerId": "8544442103388575645"
+		},
+		{
+		    "likeCount": 0,
+		    "images": [],
+		    "reviewer": {
+			"lastName": "Reddy",
+			"firstName": "Pavankumar"
+		    },
+		    "id": "55038c7cb56751655d6b0bfc",
+		    "imageCount": 0,
+		    "ratings": {
+			"Service Quality": 4,
+			"Value For Money": 4,
+			"Cleanliness": 4,
+			"Food And Drinks": 5,
+			"Amenities": 4,
+			"Location": 4
+		    },
+		    "viewedCount": 708,
+		    "hotelName": "The Gateway Hotel On Residency Road A Taj Hotel",
+		    "deviceType": "telecalling",
+		    "createdAt": "2015-03-14T01:18:52.909Z",
+		    "reviewContent": "Very impressive experience...very decent stay it was...i enjoyed the food, specially the breakfast...very \"yummy\"..neat and tidy hotel...location is easily attainable..",
+		    "totalRating": 4,
+		    "reviewerId": "5481350226957ad8740d0193",
+		    "reviewTitle": "Quite Impressive@",
+		    "monthOfStay": 201503,
+		    "submittedAt": "2015-03-31T19:40:02.111Z",
+		    "firstName": "Pavankumar",
+		    "lastName": "Reddy",
+		    "fromBooking": true,
+		    "hotelCity": "Bangalore",
+		    "recommendations": [
+			"Couples",
+			"Families"
+		    ],
+		    "voyagerId": "8544442103388575645"
+		},
+		{
+		    "reviewerId": "54f6c525cb540ad2785e9a64",
+		    "monthOfStay": 201503,
+		    "submittedAt": "2015-03-04T11:40:27.323Z",
+		    "reviewer": {
+			"lastName": "Guest",
+			"firstName": "Goibibo"
+		    },
+		    "hotelCity": "Bangalore",
+		    "viewedCount": 685,
+		    "ratings": {
+			"Service Quality": 3,
+			"Amenities": 3,
+			"Location": 3,
+			"Value For Money": 3
+		    },
+		    "id": "54f6eed73f5a247e72d182c9",
+		    "fromBooking": false,
+		    "likeCount": 0,
+		    "hotelName": "The Gateway Hotel on Residency Road (A Taj Hotel)",
+		    "deviceType": "android",
+		    "imageCount": 0,
+		    "reviewContent": "",
+		    "recommendations": [
+			"Others"
+		    ],
+		    "images": [],
+		    "voyagerId": "8544442103388575645",
+		    "totalRating": 3,
+		    "reviewTitle": "",
+		    "createdAt": "2015-03-04T11:39:03.164Z"
+		}
+	    ],
+	    "success": true
+	}
+
+
+* **Result Description**:
+	Returns list of the reviews of different user in dictionary format 
+
+	**voyagerId** represents Hotel code (`hc`)
+	
+

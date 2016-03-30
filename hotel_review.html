@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hotel Review &mdash; Hotels b2b API 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Hotels b2b API 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Hotel Cancel Policy" href="hotel_policy.html" />
+    <link rel="prev" title="Hotel Details" href="hotel_details.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="hotel_policy.html" title="Hotel Cancel Policy"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hotel_details.html" title="Hotel Details"
+             accesskey="P">previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hotel-review">
+<h1>Hotel Review<a class="headerlink" href="#hotel-review" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first"><strong>Description</strong>:</p>
+<blockquote>
+<div><p>To get the review of hotel, required param is <cite>hotel code (hc)</cite> which is obtained from <cite>city_hotels</cite> API</p>
+<p><strong>limit</strong> and <strong>offset</strong> can also be sent in URL for pagination purpose, which is not mandatory, its 50 and 10 by default</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Sample request URL</strong>:</p>
+<blockquote>
+<div><p><cite>Request Method</cite> :  <cite>GET</cite></p>
+<p><a class="reference external" href="https://www.goibibobusiness.com/api/hotels/b2b/v2/get_hotel_review/?hc=8544442103388575645&amp;limit=50&amp;offset=10">https://www.goibibobusiness.com/api/hotels/b2b/v2/get_hotel_review/?hc=8544442103388575645&amp;limit=50&amp;offset=10</a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Sample Response</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;likeCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;images&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s">&quot;reviewer&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;lastName&quot;</span><span class="p">:</span> <span class="s">&quot;Guest&quot;</span><span class="p">,</span>
+                <span class="s">&quot;firstName&quot;</span><span class="p">:</span> <span class="s">&quot;Anonymous&quot;</span>
+            <span class="p">},</span>
+            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;5531af223d0eb0c74db3ae65&quot;</span><span class="p">,</span>
+            <span class="s">&quot;imageCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;ratings&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;Service Quality&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s">&quot;Value For Money&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s">&quot;Cleanliness&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s">&quot;Food And Drinks&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s">&quot;Amenities&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s">&quot;Location&quot;</span><span class="p">:</span> <span class="mi">5</span>
+            <span class="p">},</span>
+            <span class="s">&quot;viewedCount&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+            <span class="s">&quot;hotelName&quot;</span><span class="p">:</span> <span class="s">&quot;The Gateway Hotel On Residency Road A Taj Hotel&quot;</span><span class="p">,</span>
+            <span class="s">&quot;deviceType&quot;</span><span class="p">:</span> <span class="s">&quot;web&quot;</span><span class="p">,</span>
+            <span class="s">&quot;createdAt&quot;</span><span class="p">:</span> <span class="s">&quot;2015-04-18T01:10:58.027Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;reviewContent&quot;</span><span class="p">:</span> <span class="s">&quot;amazing breakfast. clean and quite place! very friendly staffs&quot;</span><span class="p">,</span>
+            <span class="s">&quot;totalRating&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s">&quot;reviewerId&quot;</span><span class="p">:</span> <span class="s">&quot;545e6f65ed0c9f5536e82370&quot;</span><span class="p">,</span>
+            <span class="s">&quot;reviewTitle&quot;</span><span class="p">:</span> <span class="s">&quot;too good for the price&quot;</span><span class="p">,</span>
+            <span class="s">&quot;monthOfStay&quot;</span><span class="p">:</span> <span class="mi">201504</span><span class="p">,</span>
+            <span class="s">&quot;submittedAt&quot;</span><span class="p">:</span> <span class="s">&quot;2015-04-23T05:45:54.375Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;firstName&quot;</span><span class="p">:</span> <span class="s">&quot;Karthikeyan&quot;</span><span class="p">,</span>
+            <span class="s">&quot;lastName&quot;</span><span class="p">:</span> <span class="s">&quot;Murugan&quot;</span><span class="p">,</span>
+            <span class="s">&quot;fromBooking&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s">&quot;hotelCity&quot;</span><span class="p">:</span> <span class="s">&quot;Bangalore&quot;</span><span class="p">,</span>
+            <span class="s">&quot;voyagerId&quot;</span><span class="p">:</span> <span class="s">&quot;8544442103388575645&quot;</span><span class="p">,</span>
+            <span class="s">&quot;isAnonymous&quot;</span><span class="p">:</span> <span class="n">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">&quot;likeCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;images&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s">&quot;reviewer&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;lastName&quot;</span><span class="p">:</span> <span class="s">&quot;Guest&quot;</span><span class="p">,</span>
+                <span class="s">&quot;firstName&quot;</span><span class="p">:</span> <span class="s">&quot;Anonymous&quot;</span>
+            <span class="p">},</span>
+            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;550d35843c0969f3224c7b57&quot;</span><span class="p">,</span>
+            <span class="s">&quot;imageCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;ratings&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;Service Quality&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s">&quot;Value For Money&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s">&quot;Cleanliness&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s">&quot;Food And Drinks&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s">&quot;Amenities&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s">&quot;Location&quot;</span><span class="p">:</span> <span class="mi">5</span>
+            <span class="p">},</span>
+            <span class="s">&quot;viewedCount&quot;</span><span class="p">:</span> <span class="mi">111</span><span class="p">,</span>
+            <span class="s">&quot;hotelName&quot;</span><span class="p">:</span> <span class="s">&quot;The Gateway Hotel On Residency Road A Taj Hotel&quot;</span><span class="p">,</span>
+            <span class="s">&quot;deviceType&quot;</span><span class="p">:</span> <span class="s">&quot;telecalling&quot;</span><span class="p">,</span>
+            <span class="s">&quot;createdAt&quot;</span><span class="p">:</span> <span class="s">&quot;2015-03-21T09:10:28.434Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;reviewContent&quot;</span><span class="p">:</span> <span class="s">&quot;very good staff...very supportive...and the best part is that the hotel is centrally located...so very convenient to access and its nearby everything...and i guess its not just good for any particular category..its good for all..&quot;</span><span class="p">,</span>
+            <span class="s">&quot;totalRating&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="s">&quot;reviewerId&quot;</span><span class="p">:</span> <span class="s">&quot;550d35843c0969f3224c7b56&quot;</span><span class="p">,</span>
+            <span class="s">&quot;reviewTitle&quot;</span><span class="p">:</span> <span class="s">&quot;Centrally located...&quot;</span><span class="p">,</span>
+            <span class="s">&quot;monthOfStay&quot;</span><span class="p">:</span> <span class="mi">201503</span><span class="p">,</span>
+            <span class="s">&quot;submittedAt&quot;</span><span class="p">:</span> <span class="s">&quot;2015-04-19T19:40:02.624Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;firstName&quot;</span><span class="p">:</span> <span class="s">&quot;Pallavi&quot;</span><span class="p">,</span>
+            <span class="s">&quot;lastName&quot;</span><span class="p">:</span> <span class="s">&quot;Gupta&quot;</span><span class="p">,</span>
+            <span class="s">&quot;fromBooking&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s">&quot;hotelCity&quot;</span><span class="p">:</span> <span class="s">&quot;Bangalore&quot;</span><span class="p">,</span>
+            <span class="s">&quot;recommendations&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s">&quot;Business Travel&quot;</span><span class="p">,</span>
+                <span class="s">&quot;Couples&quot;</span><span class="p">,</span>
+                <span class="s">&quot;Families&quot;</span><span class="p">,</span>
+                <span class="s">&quot;Group Of Friends&quot;</span><span class="p">,</span>
+                <span class="s">&quot;Others&quot;</span>
+            <span class="p">],</span>
+            <span class="s">&quot;voyagerId&quot;</span><span class="p">:</span> <span class="s">&quot;8544442103388575645&quot;</span><span class="p">,</span>
+            <span class="s">&quot;isAnonymous&quot;</span><span class="p">:</span> <span class="n">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">&quot;likeCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;images&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s">&quot;reviewer&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;lastName&quot;</span><span class="p">:</span> <span class="s">&quot;Thangapazham&quot;</span><span class="p">,</span>
+                <span class="s">&quot;firstName&quot;</span><span class="p">:</span> <span class="s">&quot;Radhasivaprasad&quot;</span>
+            <span class="p">},</span>
+            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;55062dda8310c3e90f7cbdd4&quot;</span><span class="p">,</span>
+            <span class="s">&quot;imageCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;ratings&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;Service Quality&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s">&quot;Amenities&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s">&quot;Location&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s">&quot;Value For Money&quot;</span><span class="p">:</span> <span class="mi">5</span>
+            <span class="p">},</span>
+            <span class="s">&quot;viewedCount&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+            <span class="s">&quot;hotelName&quot;</span><span class="p">:</span> <span class="s">&quot;The Gateway Hotel On Residency Road A Taj Hotel&quot;</span><span class="p">,</span>
+            <span class="s">&quot;deviceType&quot;</span><span class="p">:</span> <span class="s">&quot;android&quot;</span><span class="p">,</span>
+            <span class="s">&quot;createdAt&quot;</span><span class="p">:</span> <span class="s">&quot;2015-03-16T01:11:54.270Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;reviewContent&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+            <span class="s">&quot;totalRating&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s">&quot;reviewerId&quot;</span><span class="p">:</span> <span class="s">&quot;548febe46c82e9f42bd88b33&quot;</span><span class="p">,</span>
+            <span class="s">&quot;reviewTitle&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+            <span class="s">&quot;monthOfStay&quot;</span><span class="p">:</span> <span class="mi">201503</span><span class="p">,</span>
+            <span class="s">&quot;submittedAt&quot;</span><span class="p">:</span> <span class="s">&quot;2015-04-13T14:29:01.703Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;firstName&quot;</span><span class="p">:</span> <span class="s">&quot;Radhasivaprasad&quot;</span><span class="p">,</span>
+            <span class="s">&quot;lastName&quot;</span><span class="p">:</span> <span class="s">&quot;Thangapazham&quot;</span><span class="p">,</span>
+            <span class="s">&quot;fromBooking&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s">&quot;hotelCity&quot;</span><span class="p">:</span> <span class="s">&quot;Bangalore&quot;</span><span class="p">,</span>
+            <span class="s">&quot;recommendations&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s">&quot;Others&quot;</span>
+            <span class="p">],</span>
+            <span class="s">&quot;voyagerId&quot;</span><span class="p">:</span> <span class="s">&quot;8544442103388575645&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">&quot;likeCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;images&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s">&quot;reviewer&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;lastName&quot;</span><span class="p">:</span> <span class="s">&quot;Reddy&quot;</span><span class="p">,</span>
+                <span class="s">&quot;firstName&quot;</span><span class="p">:</span> <span class="s">&quot;Pavankumar&quot;</span>
+            <span class="p">},</span>
+            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;55038c7cb56751655d6b0bfc&quot;</span><span class="p">,</span>
+            <span class="s">&quot;imageCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;ratings&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;Service Quality&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s">&quot;Value For Money&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s">&quot;Cleanliness&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s">&quot;Food And Drinks&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s">&quot;Amenities&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s">&quot;Location&quot;</span><span class="p">:</span> <span class="mi">4</span>
+            <span class="p">},</span>
+            <span class="s">&quot;viewedCount&quot;</span><span class="p">:</span> <span class="mi">708</span><span class="p">,</span>
+            <span class="s">&quot;hotelName&quot;</span><span class="p">:</span> <span class="s">&quot;The Gateway Hotel On Residency Road A Taj Hotel&quot;</span><span class="p">,</span>
+            <span class="s">&quot;deviceType&quot;</span><span class="p">:</span> <span class="s">&quot;telecalling&quot;</span><span class="p">,</span>
+            <span class="s">&quot;createdAt&quot;</span><span class="p">:</span> <span class="s">&quot;2015-03-14T01:18:52.909Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;reviewContent&quot;</span><span class="p">:</span> <span class="s">&quot;Very impressive experience...very decent stay it was...i enjoyed the food, specially the breakfast...very </span><span class="se">\&quot;</span><span class="s">yummy</span><span class="se">\&quot;</span><span class="s">..neat and tidy hotel...location is easily attainable..&quot;</span><span class="p">,</span>
+            <span class="s">&quot;totalRating&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="s">&quot;reviewerId&quot;</span><span class="p">:</span> <span class="s">&quot;5481350226957ad8740d0193&quot;</span><span class="p">,</span>
+            <span class="s">&quot;reviewTitle&quot;</span><span class="p">:</span> <span class="s">&quot;Quite Impressive@&quot;</span><span class="p">,</span>
+            <span class="s">&quot;monthOfStay&quot;</span><span class="p">:</span> <span class="mi">201503</span><span class="p">,</span>
+            <span class="s">&quot;submittedAt&quot;</span><span class="p">:</span> <span class="s">&quot;2015-03-31T19:40:02.111Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;firstName&quot;</span><span class="p">:</span> <span class="s">&quot;Pavankumar&quot;</span><span class="p">,</span>
+            <span class="s">&quot;lastName&quot;</span><span class="p">:</span> <span class="s">&quot;Reddy&quot;</span><span class="p">,</span>
+            <span class="s">&quot;fromBooking&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s">&quot;hotelCity&quot;</span><span class="p">:</span> <span class="s">&quot;Bangalore&quot;</span><span class="p">,</span>
+            <span class="s">&quot;recommendations&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s">&quot;Couples&quot;</span><span class="p">,</span>
+                <span class="s">&quot;Families&quot;</span>
+            <span class="p">],</span>
+            <span class="s">&quot;voyagerId&quot;</span><span class="p">:</span> <span class="s">&quot;8544442103388575645&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">&quot;reviewerId&quot;</span><span class="p">:</span> <span class="s">&quot;54f6c525cb540ad2785e9a64&quot;</span><span class="p">,</span>
+            <span class="s">&quot;monthOfStay&quot;</span><span class="p">:</span> <span class="mi">201503</span><span class="p">,</span>
+            <span class="s">&quot;submittedAt&quot;</span><span class="p">:</span> <span class="s">&quot;2015-03-04T11:40:27.323Z&quot;</span><span class="p">,</span>
+            <span class="s">&quot;reviewer&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;lastName&quot;</span><span class="p">:</span> <span class="s">&quot;Guest&quot;</span><span class="p">,</span>
+                <span class="s">&quot;firstName&quot;</span><span class="p">:</span> <span class="s">&quot;Goibibo&quot;</span>
+            <span class="p">},</span>
+            <span class="s">&quot;hotelCity&quot;</span><span class="p">:</span> <span class="s">&quot;Bangalore&quot;</span><span class="p">,</span>
+            <span class="s">&quot;viewedCount&quot;</span><span class="p">:</span> <span class="mi">685</span><span class="p">,</span>
+            <span class="s">&quot;ratings&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s">&quot;Service Quality&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s">&quot;Amenities&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s">&quot;Location&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s">&quot;Value For Money&quot;</span><span class="p">:</span> <span class="mi">3</span>
+            <span class="p">},</span>
+            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;54f6eed73f5a247e72d182c9&quot;</span><span class="p">,</span>
+            <span class="s">&quot;fromBooking&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s">&quot;likeCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;hotelName&quot;</span><span class="p">:</span> <span class="s">&quot;The Gateway Hotel on Residency Road (A Taj Hotel)&quot;</span><span class="p">,</span>
+            <span class="s">&quot;deviceType&quot;</span><span class="p">:</span> <span class="s">&quot;android&quot;</span><span class="p">,</span>
+            <span class="s">&quot;imageCount&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s">&quot;reviewContent&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+            <span class="s">&quot;recommendations&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s">&quot;Others&quot;</span>
+            <span class="p">],</span>
+            <span class="s">&quot;images&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s">&quot;voyagerId&quot;</span><span class="p">:</span> <span class="s">&quot;8544442103388575645&quot;</span><span class="p">,</span>
+            <span class="s">&quot;totalRating&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s">&quot;reviewTitle&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+            <span class="s">&quot;createdAt&quot;</span><span class="p">:</span> <span class="s">&quot;2015-03-04T11:39:03.164Z&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Result Description</strong>:</dt>
+<dd><p class="first">Returns list of the reviews of different user in dictionary format</p>
+<p class="last"><strong>voyagerId</strong> represents Hotel code (<cite>hc</cite>)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hotel_details.html"
+                        title="previous chapter">Hotel Details</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="hotel_policy.html"
+                        title="next chapter">Hotel Cancel Policy</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/hotel_review.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="hotel_policy.html" title="Hotel Cancel Policy"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hotel_details.html" title="Hotel Details"
+             >previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, ibibo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

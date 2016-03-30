@@ -1,0 +1,103 @@
+###################
+Get Booking Details
+###################
+
+* **Description**:
+
+   To get booking details, required param is `gobookingid` which is obtained from Confirm Booking API
+
+* **Sample request URL**:
+
+   `Request Method` :  `GET`
+
+   https://www.goibibobusiness.com/api/hotels/b2b/get_booking_details?gobookingid=GOHTLDV27b1d21430201525
+
+.. note:: These validations hold for Get Booking Details API:
+
+            * Valid gobookingid
+*
+
+   **Example**:
+
+	**URL**
+
+	https://www.goibibobusiness.com/api/hotels/b2b/get_booking_details?gobookingid=GOHTLDV27b1d21430201525
+
+* **Sample Response**::
+
+	{
+	    "data": {
+		"RoomType": "Club Room with Breakfast",
+		"ci": "2015-06-19",
+		"bookingid": "HTL987JAM2",
+		"co": "2015-06-20",
+		"HotelName": "",
+		"rtc": "45000007009",
+		"customer_details": {
+		    "firstname": "ravig",
+		    "title": "Mr",
+		    "mobile": "9986473971",
+		    "lastname": "na",
+		    "country_phone_code": "+91",
+		    "email": "rkanth1002@gmail.com"
+		},
+		"HotelAddress": "",
+		"gobookingid": "GOHTLDV229d8e1432635791",
+		"grandtotal": 5972,
+		"phone": "080 25584242",
+		"noofNights": "1",
+		"Inclusions": [
+		    "Accommodation",
+		    "Breakfast(CP)"
+		],
+		"rpc": "990000008611",
+		"noofChildren": 0,
+		"cpdata": {
+		    "cancelPolicy": [
+			"No Show, Cancellation charges will be 100 % Cost.",
+			"If You cancel your Hotel booking before Jun 17, 2015 09:59 AM,                      Cancellation charges will be Rs. 0 Fixed Cost.",
+			"If You cancel your Hotel booking from Jun 17, 2015 10:00 AM to Jun 19, 2015 09:59 AM,                      Cancellation charges will be 1 Night Cost.",
+			"On cancellation of bookings done using promotional codes, the charges are calculated on total price",
+			"Most hotels do not allow unmarried / unrelated couples to check-in. This is at full discretion of the hotel management. No refund would be applicable in case the hotel denies check-in under such circumstances .",
+			"On cancellation of bookings done using promotional codes, the charges are calculated on total price"
+		    ],
+		    "notice": [],
+		    "hotelPolicy": [
+			"The standard check-in time is 02:00 PM and the standard check-out time is 12:00 PM.\n                Early check-in or late check-out is strictly subjected to availability\n                and may be chargeable by the hotel. Any early check-in or late check-out\n                request must be directed and reconfirmed with hotel directly",
+			"Hotel may charge compulsory gala dinner supplement on Christmas / New Year's eve or other festive periods. Any such supplements need to be paid directly at the hotel."
+		    ]
+		},
+		"latitude": 12.9748035965,
+		"hc": "1719412671873990301",
+		"roomWiseRent": [
+		    {
+			"childs": 0,
+			"adults": "2",
+			"roomNo": "Room 1",
+			"orrate": 5000,
+			"room_total": "5000",
+			"originalRate": 0,
+			"avgRent": 5000
+		    }
+		],
+		"noofAdults": 2,
+		"vcid": "6771549831164675055"
+	    },
+	    "success": true
+	}
+
+* **Result Description**:
+
+	Returns the `details` of booking
+
+	**Keys abrevations**::
+	        
+                ci      : checkin date
+		co	: checkout date
+		vcid	: City ID
+		hc	: Hotel ID
+		rtc     : room type code
+                rpc     : room price code
+		cpdata	: Hotel cancel policy
+	
+

@@ -1,0 +1,69 @@
+##############
+Cancel Booking
+##############
+
+* **Description**:
+
+   To cancel booking, required post-param is `gobookingid` which is obtained from Confirm Booking API
+
+* **Sample request URL**:
+
+   `Request Method` :  `POST`
+
+   https://www.goibibobusiness.com/api/hotels/b2b/confirm_cancel
+
+   **POST form-data**
+	
+	1) gobookingid
+
+.. note:: These validations hold for cancel booking API:
+
+            *Valid gobookingid*
+
+   **Example**:
+
+	**URL**
+
+	http://goibibobusiness.com/api/hotels/b2b/confirm_cancel
+
+* **Sample Response**::
+
+	{
+	    "data": {
+		"status": "1", 
+		"bank_ref_num": "CRED151", 
+		"success": true, 
+		"mihpayid": "CRED150", 
+		"amount_settled": "0.00000", 
+		"settlement_id": null, 
+		"UTR_no": null, 
+		"msg": "Refunded", 
+		"token": "", 
+		"mode": "Credits", 
+		"value_date": null, 
+		"request_id": "GOHTLDV229d8e1432635791", 
+		"action": "refund", 
+		"amt": 5972.0
+	    }, 
+	    "success": true
+	}
+
+* **Result Description**:
+
+	Returns the json response, `status` Flag indicates the status of cancellation done, if `1` cancelled and refunded amount else failed to refund back, but cancelled.
+
+	*Other keys such as*::
+		
+		bank_ref_num	: This is the reference number regarding refund transaction done to account, incase if amount is not refunded, then this number can be used for reference.
+		status		: This is similar to status Flag, to indicate the status of refund done.
+		amount_settled	: Used for internal purpose 
+		mihpayid 	: This is the reference number regarding the actual booking, i.e., generated during the time of booking.
+		msg		: Returns message as 'Refunded' or 'Not Refunded`, if Not Refunded, then need to contact Goibibo support team
+		token		: Used for internal purpose
+		mode		: Used for internal purpose
+		value_date	: Used for internal purpose
+		request_id	: gobookingid
+		action		: Used for internal purpose
+		amt		: Total amount refunded back to account
+	
+

@@ -1,0 +1,52 @@
+.. Hotels API documentation master file, created by
+   sphinx-quickstart on Fri Apr 17 17:47:16 2015.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Hotels API's documentation!
+======================================
+
+Goibibo Hotel API implements RESTful web services allowing a user to search Hotels, Book and Cancel. All Server/Client exchanges proceed using standard JSON format. You should have a basic familiarity with software development and web-services to proceed with this documentation. Use the API in any language that supports Web-Services. You would need the API login credentials and URL to access this API.
+
+**Basic Auth** mechanism is used for authorization, use the given goibibobusiness credentials to access the API's.
+
+Access to the production environment is available at:
+
+*URL:* http://goibibobusiness.com/api/hotels/b2b/
+
+You can follow the rest of the documentation on how to use the APIs. All the functionalities in this API are enabled, unless stated otherwise.
+
+
+* City List
+* Hotels List
+* Hotel Dtails
+* Hotel Review
+* Hotel Cancel Policy
+* Provisional booking
+* Confirm Booking
+* Get Booking Status
+* Get Booking Details
+* Get Refund Details
+* Cancel Booking
+* Error Codes
+
+
+Contents:
+
+.. toctree::
+   
+   city_list.rst
+   city_hotels.rst
+   hotel_details.rst
+   hotel_review.rst
+   hotel_policy.rst
+   pro_booking.rst
+   confirm_booking.rst
+   get_booking.rst
+   get_booking_details.rst
+   get_refund_details.rst
+   confirm_cancel.rst
+   errors.rst
+
+
+

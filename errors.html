@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Error Codes &mdash; Hotels b2b API 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Hotels b2b API 1.0.1 documentation" href="index.html" />
+    <link rel="prev" title="Cancel Booking" href="confirm_cancel.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="confirm_cancel.html" title="Cancel Booking"
+             accesskey="P">previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="error-codes">
+<h1>Error Codes<a class="headerlink" href="#error-codes" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p class="first"><strong>List of error codes</strong></p>
+<blockquote>
+<div><p><strong>&#8220;101&#8221;: &#8220;Internal Server Error&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned whenever error occured in backend code
+</pre></div>
+</div>
+<p><strong>&#8220;102&#8221;: &#8220;Check in Date Should be less than today date/ Checkout Date should be greater than check in date&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when checkin and checkout date or not in expected order, i.e., checkin date should be greater or equal to current date and checkout date should be greater than checkin date
+</pre></div>
+</div>
+<p><strong>&#8220;103&#8221;: &#8220;max 4 adults per rooms and minumum 1 adult per rooms and max 2 children per room&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when adult or children count mismatches
+</pre></div>
+</div>
+<p><strong>&#8220;104&#8221;: &#8220;No of adults should be greater than 0 and no of rooms should be greater than 0&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when adult or room count mismatches
+</pre></div>
+</div>
+<p><strong>&#8220;105&#8221;: &#8220;Hotel code required&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when hotel code (hc) is not sent
+</pre></div>
+</div>
+<p><strong>&#8220;106&#8221;: &#8220;City code required&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when city id is not sent in query string
+</pre></div>
+</div>
+<p><strong>&#8220;107&#8221;: &#8220;Cancellation Failed, please contact goibibo support&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Return when cancellation failed, i.e., when error occured while cancelling booking
+</pre></div>
+</div>
+<p><strong>&#8220;108&#8221;: &#8220;BookingID is required&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when BookingId is not sent
+</pre></div>
+</div>
+<p><strong>&#8220;109&#8221;: &#8220;Required Query String (Query)&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when query string is not in required format
+</pre></div>
+</div>
+<p><strong>&#8220;110&#8221;: &#8220;Couldn&#8217;t find any property&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when hotels are not found under searched city
+</pre></div>
+</div>
+<p><strong>&#8220;111&#8221;: &#8220;Couldn&#8217;t find booking&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when booking sent while confirm booking not found in database
+</pre></div>
+</div>
+<p><strong>&#8220;112&#8221;: &#8220;You dont have enough amount in your account to book&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when vendor doesn&#39;t have sufficient amoutn to make a booking
+</pre></div>
+</div>
+<p><strong>&#8220;113&#8221;: &#8220;Vendor account not found&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when vendor account doesn&#39;t exits in database
+</pre></div>
+</div>
+<p><strong>&#8220;114&#8221;: &#8220;Vendor not Exists&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when user authentication fails while making booking
+</pre></div>
+</div>
+<p><strong>&#8220;115&#8221;: &#8220;Invalid hash key&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when hash key sent by user doesn&#39;t match with required hash key
+</pre></div>
+</div>
+<p><strong>&#8220;116&#8221;: &#8220;Error in Booking&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when booking doesn&#39;t happen
+</pre></div>
+</div>
+<p><strong>&#8220;117&#8221;: &#8220;Duplicate Booking&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when BookingId sent while confirm booking already confirmed or failed booking
+</pre></div>
+</div>
+<p><strong>&#8220;118&#8221;: &#8220;BookingID and SecretKey is required&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when BookingId or SecretKey (haskey) is not sent
+</pre></div>
+</div>
+<p><strong>&#8220;119&#8221;: &#8220;Invalid room count&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when room count sent is not valid
+</pre></div>
+</div>
+<p><strong>&#8220;120&#8221;: &#8220;Invalid Query string&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when invalid query string is sent
+</pre></div>
+</div>
+<p><strong>&#8220;121&#8221;: &#8220;ibp and fwdp are required&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when ibp or fwdp params are missing
+</pre></div>
+</div>
+<p><strong>&#8220;122&#8221;: &#8220;rpc and rtc are required&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when rtc or rpc params are missing
+</pre></div>
+</div>
+<p><strong>&#8220;123&#8221;: &#8220;Invalid customer details&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when any of the required customer detail is missed while provisional booking
+</pre></div>
+</div>
+<p><strong>&#8220;124&#8221;: &#8220;Invalid ibp value&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when ibp value null
+</pre></div>
+</div>
+<p><strong>&#8220;125&#8221;: &#8220;Invalid sort_type value&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when sort type sent during city hotels API doesn&#39;t match with required key
+</pre></div>
+</div>
+<p><strong>&#8220;126&#8221;: &#8220;Booking cannot be cancelled&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when provided gobookingid is already cancelled or doesn&#39;t have cancellation option
+</pre></div>
+</div>
+<p><strong>&#8220;127&#8221;: &#8220;Booking cannot be cancelled Online, Please contact Goibibo support team&#8221;</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>Returned when cancellation for booking cannot be done online
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Sample reponse when error occurred</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;errors&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;hotel_ids&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Check in Date Should be less than today date/ Checkout Date should be greater than check in date&quot;</span><span class="p">,</span>
+        <span class="s">&quot;error_code&quot;</span><span class="p">:</span> <span class="mi">102</span>
+    <span class="p">},</span>
+    <span class="s">&quot;api_version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;success&quot;</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="confirm_cancel.html"
+                        title="previous chapter">Cancel Booking</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/errors.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="confirm_cancel.html" title="Cancel Booking"
+             >previous</a> |</li>
+        <li><a href="api_docs.html">Hotels b2b API 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, ibibo.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
